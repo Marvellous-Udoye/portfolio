@@ -14,41 +14,44 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "transaction tracker",
-    template: "%s | transaction tracker",
+    default: "Frontend engineer | Marvellous",
+    template: "%s | Frontend engineer | Marvellous Udoye",
   },
   description:
-    "Transaction tracker helps you automatically track your daily expenses and income, and generate reports to help you manage your finances.",
+    "I'm Marvellous Udoye, a frontend developer passionate about building clean, responsive, and interactive web apps using React, Next.js, and TypeScript. This portfolio showcases my projects, skills, and experience as I grow in the world of web development.",
   keywords: [
-    "transaction tracker",
-    "expense tracker",
-    "income tracker",
-    "financial tracker",
-    "budget tracker",
-    "personal finance",
-    "money management",
-    "financial management",
+    "frontend developer",
+    "web developer",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+    "portfolio",
+    "software development",
+    "student developer",
+    "developer projects",
+    "responsive web design",
   ],
-  authors: [{ name: "Transaction Tracker" }],
-  creator: "Transaction Tracker",
-  publisher: "Transaction Tracker",
+  authors: [{ name: "Marvellous Udoye" }],
+  creator: "Marvellous Udoye",
+  publisher: "Marvellous Udoye",
   formatDetection: {
-    email: false,
+    email: true,
     address: false,
     telephone: false,
   },
   openGraph: {
     type: "website",
-    locale: "en_NG",
-    url: "https://example.com",
-    siteName: "transaction tracker",
-    title:
-      "Transaction tracker -  Automatically track your daily expenses and income",
+    locale: "en_US",
+    url: "https://your-portfolio-url.com",
+    siteName: "Marvellous Udoye | Frontend Developer",
+    title: "Marvellous Udoye - Frontend Developer & Web Enthusiast",
     description:
-      "Transaction tracker helps you automatically track your daily expenses and income, and generate reports to help you manage your finances.",
+      "Explore my developer portfolio where I showcase modern, user-friendly projects built with React, Next.js, and Tailwind CSS. Follow my journey as a student and aspiring software developer.",
   },
-  applicationName: "transaction tracker",
-  category: "Service Provider",
+  applicationName: "Marvellous Udoye's Portfolio",
+  category: "Technology",
 };
 
 export default function RootLayout({
