@@ -9,7 +9,7 @@ interface HeaderProps {
 export const Header = ({ title, description, icon }: HeaderProps) => {
   return (
     <CardHeader className="flex flex-col items-center">
-      <div className="py-1.5 px-2.5 flex gap-2">
+      <div className="flex items-center gap-2 py-1.5 px-2.5">
         {icon}
         <CardTitle className="text-[#999] font-medium text-sm">
           {title}

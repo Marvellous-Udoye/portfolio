@@ -1,0 +1,111 @@
+"use client";
+
+import { ResumeIcon, StatusIcon } from "../icons/icons";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "../ui/badge";
+import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+
+interface ProfileCardProps {
+  name: string;
+  role: string;
+  imageUrl: string;
+  initials?: string;
+  profileDetails: {
+    label: string;
+    icon: React.ReactNode;
+  }[];
+  socialLinks: {
+    icon: React.ReactNode;
+    label: string;
+  }[];
+}
+
+export const ProfileCard = ({
+  name,
+  role,
+  imageUrl,
+  initials = "MU",
+  profileDetails = [],
+  socialLinks = [],
+}: ProfileCardProps) => {
+  return (
+    <Card className="p-5 min-h-[345px] max-h-[345px] flex flex-col gap-7">
+      <div className="flex items-center gap-4">
+        <Avatar>
+          <AvatarImage
+            src={imageUrl || "/next.svg"}
+            alt={name}
+            className="w-[107px] h-[110px] rounded-2xl object-cover"
+          />
+          <AvatarFallback className="bg-[#1D1B23] text-[#CCC] text-lg font-medium">
+            {initials}
+          </AvatarFallback>
+        </Avatar>
+
+        <CardHeader className="px-0">
+          <div className="flex flex-col gap-3 ">
+            <div className="flex items-center justify-between gap-2">
+              <Badge
+                variant="outline"
+                className="bg-[#141414] border-[0.5px] border-[rgba(255,255,255,0.05)] px-2.5 py-1.5 rounded-full flex gap-2.5 text-[13px] font-medium text-[#999]"
+              >
+                <StatusIcon />
+                <p>Available To Work</p>
+              </Badge>
+
+              <Badge className="text-[#CCC] text-[13px] font-medium flex gap-2 items-center ">
+                Resume
+                <div className="cursor-pointer">
+                  <ResumeIcon />
+                </div>
+              </Badge>
+            </div>
+            <div className="flex flex-col gap-2.5">
+              <h3 className="text-[#E6E6E6] text-[22px] leading-6 font-semibold">
+                {name}
+              </h3>
+              <p className="flex gap-1 text-sm">
+                <span className="text-[#999] font-medium"> I'm a</span>
+                <span className="text-[#916CE7] font-medium">{role}</span>
+              </p>
+            </div>
+          </div>
+        </CardHeader>
+      </div>
+
+      <CardContent className="p-3 bg-[#141414] rounded-[10px] border-[0.8px] border-[rgba(255,255,255,0.06)]">
+        {profileDetails.length > 0 && (
+          <div className="flex flex-wrap gap-2.5 ">
+            {profileDetails.map((detail, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2.5 bg-[#191919] border-[rgba(255,255,255,0.05)] py-1.5 px-2.5 rounded-full"
+              >
+                <div>{detail.icon}</div>
+                <span className="text-[#CCC] text-[13px] font-medium">
+                  {detail.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </CardContent>
+
+      <CardFooter className="px-0">
+        {socialLinks.length > 0 && (
+          <div className="flex gap-3 w-full">
+            {socialLinks.map((link, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2.5 justify-center p-2.5 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-[13px] font-medium cursor-pointer w-full"
+              >
+                <div>{link.icon}</div>
+                <p>{link.label}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </CardFooter>
+    </Card>
+  );
+};
