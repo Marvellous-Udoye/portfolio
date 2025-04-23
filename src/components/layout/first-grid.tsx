@@ -132,10 +132,12 @@ export const FirstGrid = () => {
           description="Works Gallery"
           icon={<ProjectsIcon />}
         />
-        <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
-          <Slider {...slickSettings} className="w-full">
+        <CardContent className="px-0 overflow-hidden">
+          <Slider ref={sliderRef} {...slickSettings}>
             {projects.map((project, index) => (
-              <ProjectCard key={index} image={project} />
+              <div className="px-1">
+                <ProjectCard key={index} image={project} />
+              </div>
             ))}
           </Slider>
         </CardContent>

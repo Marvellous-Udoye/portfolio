@@ -6,7 +6,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ image }: ProjectCardProps) => {
   return (
-    <div className="h-20 w-[126px] sm:h-20 sm:w-[126px] md:h-20 md:w-[126px] lg:h-20 lg:w-[126px]">
+    <div className="h-20 w-[126px]">
       <Image
         src={image}
         alt="Project Card"
