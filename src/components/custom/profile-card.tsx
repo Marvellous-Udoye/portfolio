@@ -67,7 +67,7 @@ export const ProfileCard = ({
                 {name}
               </h3>
               <p className="flex gap-1 text-sm">
-                <span className="text-[#999] font-medium"> I'm a</span>
+                <span className="text-[#999] font-medium"> I&apos;m a</span>
                 <span className="text-[#916CE7] font-medium">{role}</span>
               </p>
             </div>
