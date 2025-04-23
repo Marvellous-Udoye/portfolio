@@ -15,7 +15,7 @@ import {
   LocationIcon,
   SecondStatIcon,
   ThirdStatIcon,
-  TimeIcon
+  TimeIcon,
 } from "../icons/icons";
 import { Card, CardContent } from "../ui/card";
 
@@ -107,7 +107,7 @@ export const SecondGrid = () => {
 
   return (
     <section className="grid grid-cols-1 gap-3">
-      <div className="flex gap-3 max-h-[132px] w-full">
+      <div className="flex gap-3 max-h-30 md:max-h-[132px] w-full">
         {stats.map((stat, index) => (
           <StatsCard
             key={index}

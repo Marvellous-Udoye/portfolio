@@ -29,7 +29,7 @@ export const ProfileCard = ({
   socialLinks = [],
 }: ProfileCardProps) => {
   return (
-    <Card className="p-5 min-h-[345px] max-h-[345px] flex flex-col gap-5">
+    <Card className="p-5 min-h-[345px] flex flex-col gap-5">
       <div className="flex items-center gap-4">
         <Avatar>
           <AvatarImage
@@ -44,17 +44,17 @@ export const ProfileCard = ({
 
         <CardHeader className="px-0 w-full">
           <div className="flex flex-col gap-3">
-            <div className="flex items-center justify-between gap-2 w-full">
+            <div className="flex items-center justify-between w-full">
               <Badge
                 variant="outline"
-                className="bg-[#141414] border-[0.5px] border-[rgba(255,255,255,0.05)] px-2.5 py-1.5 rounded-full flex gap-2.5 text-[13px] font-medium text-[#999]"
+                className="bg-[#141414] border-[0.5px] border-[rgba(255,255,255,0.05)] px-2.5 py-1.5 rounded-full flex gap-2.5 text-xs md:text-[13px] font-medium text-[#999]"
               >
                 <StatusIcon />
                 <p>Available To Work</p>
               </Badge>
 
-              <Badge className="text-[#CCC] text-[13px] font-medium flex gap-2 items-center ">
-                Resume
+              <Badge className="text-[#CCC] text-xs md:text-[13px] font-medium flex gap-2 items-center ">
+                <p className="hidden md:inline-block">Resume</p>
                 <div className="cursor-pointer">
                   <ResumeIcon />
                 </div>
