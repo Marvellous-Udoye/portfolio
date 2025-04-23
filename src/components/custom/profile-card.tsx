@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ResumeIcon, StatusIcon } from "../icons/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Badge } from "../ui/badge";
@@ -15,6 +16,7 @@ interface ProfileCardProps {
     icon: React.ReactNode;
   }[];
   socialLinks: {
+    link: string;
     icon: React.ReactNode;
     label: string;
   }[];
@@ -95,13 +97,14 @@ export const ProfileCard = ({
         {socialLinks.length > 0 && (
           <div className="flex gap-3 w-full">
             {socialLinks.map((link, index) => (
-              <div
+              <Link
                 key={index}
+                href={link.link}
                 className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
               >
                 <div>{link.icon}</div>
                 <p>{link.label}</p>
-              </div>
+              </Link>
             ))}
           </div>
         )}

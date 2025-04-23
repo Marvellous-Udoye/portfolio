@@ -126,10 +126,12 @@ export const SecondGrid = () => {
         profileDetails={profileDetails}
         socialLinks={[
           {
+            link: "https://www.linkedin.com/in/marvellous-udoye",
             icon: <FaLinkedin color="#916CE7" size={20} />,
             label: "LinkedIn",
           },
           {
+            link: "https://github.com/Marvellous-Udoye",
             icon: <FaGithub color="#916CE7" size={20} />,
             label: "GitHub",
           },
