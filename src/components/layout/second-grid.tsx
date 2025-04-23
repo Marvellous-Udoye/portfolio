@@ -15,7 +15,7 @@ import {
   LocationIcon,
   SecondStatIcon,
   ThirdStatIcon,
-  TimeIcon,
+  TimeIcon
 } from "../icons/icons";
 import { Card, CardContent } from "../ui/card";
 
@@ -66,6 +66,10 @@ const profileDetails = [
     icon: <GlobeIcon />,
   },
   {
+    label: "Frontend Developer",
+    icon: <FirstStatIcon />,
+  },
+  {
     label: "Bells University",
     icon: <DegreeIcon />,
   },
@@ -103,7 +107,7 @@ export const SecondGrid = () => {
 
   return (
     <section className="grid grid-cols-1 gap-3">
-      <div className="flex gap-3 max-h-[132px]">
+      <div className="flex gap-3 max-h-[132px] w-full">
         {stats.map((stat, index) => (
           <StatsCard
             key={index}

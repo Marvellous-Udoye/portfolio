@@ -42,9 +42,9 @@ export const ProfileCard = ({
           </AvatarFallback>
         </Avatar>
 
-        <CardHeader className="px-0">
-          <div className="flex flex-col gap-3 ">
-            <div className="flex items-center justify-between gap-2">
+        <CardHeader className="px-0 w-full">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center justify-between gap-2 w-full">
               <Badge
                 variant="outline"
                 className="bg-[#141414] border-[0.5px] border-[rgba(255,255,255,0.05)] px-2.5 py-1.5 rounded-full flex gap-2.5 text-[13px] font-medium text-[#999]"

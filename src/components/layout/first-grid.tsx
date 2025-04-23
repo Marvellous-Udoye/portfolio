@@ -150,7 +150,7 @@ export const FirstGrid = () => {
             </motion.div>
           </motion.div>
         </CardContent>
-        <Button className="absolute bottom-4.5 left-1/4 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
+        <Button className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
           View Works
         </Button>
       </Card>
@@ -212,7 +212,7 @@ export const FirstGrid = () => {
             </motion.div>
           </motion.div>
         </CardContent>
-        <Button className="absolute bottom-4.5 left-1/4 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
+        <Button className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
           View All Services
         </Button>
       </Card>
