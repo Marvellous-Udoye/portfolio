@@ -1,4 +1,17 @@
+import { FirstGrid } from "@/components/layout/first-grid";
+import { SecondGrid } from "@/components/layout/second-grid";
+import { ThirdGrid } from "@/components/layout/third-grid";
 
 export default function Home() {
-  return <main></main>;
+  return (
+    <div className="p-7.5 ">
+      <main className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1.5fr_2fr] gap-3 max-w-[1440px]">
+        <FirstGrid />
+        <SecondGrid />
+        <div className="sm:col-span-2 lg:col-span-1">
+          <ThirdGrid />
+        </div>
+      </main>
+    </div>
+  );
 }
