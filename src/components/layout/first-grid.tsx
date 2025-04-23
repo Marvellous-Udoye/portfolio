@@ -1,17 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { FaHtml5 } from "react-icons/fa";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { ProjectCard } from "../custom/project-card";
 import { ProjectsIcon, ServicesIcon, StacksIcon } from "../icons/icons";
 import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
-import { slickSettings } from "@/lib/slick";
 
 const stacks = [
   {
@@ -61,53 +58,46 @@ const projects = [
 ];
 
 export const FirstGrid = () => {
-  const sliderRef = useRef(null);
+  const [width, setWidth] = useState<number>(0);
+  const [serviceWidth, setServiceWidth] = useState<number>(0);
+  const projectsCarousel = useRef<HTMLDivElement>(null);
+  const servicesCarouselForward = useRef<HTMLDivElement>(null);
+  const servicesCarouselBackward = useRef<HTMLDivElement>(null);
 
-  const slickSettingsForward = {
-    dots: false,
-    infinite: true,
-    speed: 5000,
-    autoplaySpeed: 0,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    cssEase: "linear",
-    pauseOnHover: false,
-    swipeToSlide: false,
-    touchMove: false,
-    variableWidth: false,
-    centerMode: false,
-    centerPadding: "0px",
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 750,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  useEffect(() => {
+    if (projectsCarousel.current) {
+      setWidth(
+        projectsCarousel.current.scrollWidth -
+          projectsCarousel.current.offsetWidth
+      );
+    }
 
-  const slickSettingsBackward = {
-    ...slickSettingsForward,
-    rtl: true,
-  };
+    if (servicesCarouselForward.current) {
+      setServiceWidth(
+        servicesCarouselForward.current.scrollWidth -
+          servicesCarouselForward.current.offsetWidth
+      );
+    }
+
+    const handleResize = () => {
+      if (projectsCarousel.current) {
+        setWidth(
+          projectsCarousel.current.scrollWidth -
+            projectsCarousel.current.offsetWidth
+        );
+      }
+
+      if (servicesCarouselForward.current) {
+        setServiceWidth(
+          servicesCarouselForward.current.scrollWidth -
+            servicesCarouselForward.current.offsetWidth
+        );
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="grid grid-cols-1 gap-3">
@@ -133,13 +123,32 @@ export const FirstGrid = () => {
           icon={<ProjectsIcon />}
         />
         <CardContent className="px-0 overflow-hidden">
-          <Slider ref={sliderRef} {...slickSettings}>
-            {projects.map((project, index) => (
-              <div className="px-1">
-                <ProjectCard key={index} image={project} />
-              </div>
-            ))}
-          </Slider>
+          <motion.div
+            ref={projectsCarousel}
+            className="cursor-grab overflow-hidden"
+          >
+            <motion.div
+              className="flex"
+              drag="x"
+              dragConstraints={{ right: 0, left: -width }}
+              initial={{ x: 0 }}
+              animate={{
+                x: [-width, 0],
+                transition: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20,
+                  ease: "linear",
+                },
+              }}
+            >
+              {projects.map((project, index) => (
+                <motion.div key={index} className="px-1 ">
+                  <ProjectCard image={project} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </CardContent>
         <Button className="absolute bottom-4.5 left-1/4 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
           View Works
@@ -153,20 +162,55 @@ export const FirstGrid = () => {
           icon={<ServicesIcon />}
         />
         <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
-          <Slider {...slickSettingsForward}>
-            {services.map((service, index) => (
-              <div className="px-1">
-                <MiniCard key={index} icon={service.icon} text={service.text} />
-              </div>
-            ))}
-          </Slider>
-          <Slider {...slickSettingsBackward}>
-            {services.map((service, index) => (
-              <div key={index} className="px-1">
-                <MiniCard icon={service.icon} text={service.text} />
-              </div>
-            ))}
-          </Slider>
+          <motion.div
+            ref={servicesCarouselForward}
+            className="cursor-grab overflow-hidden"
+          >
+            <motion.div
+              className="flex"
+              initial={{ x: 0 }}
+              animate={{
+                x: [-serviceWidth, 0],
+                transition: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 15,
+                  ease: "linear",
+                },
+              }}
+            >
+              {services.concat(services).map((service, index) => (
+                <motion.div key={index} className="px-1 min-w-[180px]">
+                  <MiniCard icon={service.icon} text={service.text} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            ref={servicesCarouselBackward}
+            className="cursor-grab overflow-hidden"
+          >
+            <motion.div
+              className="flex"
+              initial={{ x: 0 }}
+              animate={{
+                x: [0, -serviceWidth],
+                transition: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 15,
+                  ease: "linear",
+                },
+              }}
+            >
+              {services.concat(services).map((service, index) => (
+                <motion.div key={index} className="px-1 min-w-[180px]">
+                  <MiniCard icon={service.icon} text={service.text} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </CardContent>
         <Button className="absolute bottom-4.5 left-1/4 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
           View All Services

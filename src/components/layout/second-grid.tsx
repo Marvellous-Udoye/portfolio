@@ -1,11 +1,9 @@
 "use client";
 
 import { ProfileCard } from "@/components/custom/profile-card";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { FaGithub, FaHtml5, FaLinkedin } from "react-icons/fa";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.css";
-import "slick-carousel/slick/slick.css";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { StatsCard } from "../custom/stats";
@@ -78,56 +76,33 @@ const profileDetails = [
 ];
 
 export const SecondGrid = () => {
-  const sliderRef = useRef(null);
+  const [clientWidth, setClientWidth] = useState<number>(0);
+  const clientsCarouselForward = useRef<HTMLDivElement>(null);
+  const clientsCarouselBackward = useRef<HTMLDivElement>(null);
 
-  const slickSettingsForward = {
-    dots: false,
-    infinite: true,
-    speed: 5000,
-    autoplaySpeed: 0,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    cssEase: "linear",
-    pauseOnHover: false,
-    swipeToSlide: false,
-    touchMove: false,
-    variableWidth: false,
-    centerMode: false,
-    centerPadding: "0px",
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 750,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  useEffect(() => {
+    if (clientsCarouselForward.current) {
+      setClientWidth(
+        clientsCarouselForward.current.scrollWidth -
+          clientsCarouselForward.current.offsetWidth
+      );
+    }
 
-  const slickSettingsBackward = {
-    ...slickSettingsForward,
-    rtl: true,
-  };
+    const handleResize = () => {
+      if (clientsCarouselForward.current) {
+        setClientWidth(
+          clientsCarouselForward.current.scrollWidth -
+            clientsCarouselForward.current.offsetWidth
+        );
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <section className="grid grid-cols-1 gap-3 ">
+    <section className="grid grid-cols-1 gap-3">
       <div className="flex gap-3 max-h-[132px]">
         {stats.map((stat, index) => (
           <StatsCard
@@ -147,37 +122,72 @@ export const SecondGrid = () => {
         profileDetails={profileDetails}
         socialLinks={[
           {
-            icon: <FaLinkedin color="#916CE7" size={18} />,
+            icon: <FaLinkedin color="#916CE7" size={20} />,
             label: "LinkedIn",
           },
           {
-            icon: <FaGithub color="#916CE7" size={18} />,
+            icon: <FaGithub color="#916CE7" size={20} />,
             label: "GitHub",
           },
         ]}
       />
 
-      <Card className="relative px-3 pt-3 pb-10 flex flex-col gap-7.5 rounded-[20px] ">
+      <Card className="relative px-3 pt-3 pb-10 flex flex-col gap-7.5 rounded-[20px]">
         <Header
           title="My Clients"
           description="Satisfied Partners"
           icon={<FollowIcon />}
         />
         <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
-          <Slider {...slickSettingsForward}>
-            {clients.map((client, index) => (
-              <div className="px-1">
-                <MiniCard key={index} icon={client.icon} text={client.text} />
-              </div>
-            ))}
-          </Slider>
-          <Slider {...slickSettingsBackward}>
-            {clients.map((client, index) => (
-              <div key={index} className="px-1">
-                <MiniCard icon={client.icon} text={client.text} />
-              </div>
-            ))}
-          </Slider>
+          <motion.div
+            ref={clientsCarouselForward}
+            className="cursor-grab overflow-hidden"
+          >
+            <motion.div
+              className="flex"
+              initial={{ x: 0 }}
+              animate={{
+                x: [-clientWidth, 0],
+                transition: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 15,
+                  ease: "linear",
+                },
+              }}
+            >
+              {clients.concat(clients).map((client, index) => (
+                <motion.div key={index} className="px-1 min-w-[180px]">
+                  <MiniCard icon={client.icon} text={client.text} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            ref={clientsCarouselBackward}
+            className="cursor-grab overflow-hidden"
+          >
+            <motion.div
+              className="flex"
+              initial={{ x: 0 }}
+              animate={{
+                x: [0, -clientWidth],
+                transition: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 15,
+                  ease: "linear",
+                },
+              }}
+            >
+              {clients.concat(clients).map((client, index) => (
+                <motion.div key={index} className="px-1 min-w-[180px]">
+                  <MiniCard icon={client.icon} text={client.text} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </CardContent>
       </Card>
     </section>

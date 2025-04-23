@@ -29,11 +29,11 @@ export const ProfileCard = ({
   socialLinks = [],
 }: ProfileCardProps) => {
   return (
-    <Card className="p-5 min-h-[345px] max-h-[345px] flex flex-col gap-7">
+    <Card className="p-5 min-h-[345px] max-h-[345px] flex flex-col gap-5">
       <div className="flex items-center gap-4">
         <Avatar>
           <AvatarImage
-            src={imageUrl || "/next.svg"}
+            src={imageUrl ?? "/next.svg"}
             alt={name}
             className="w-[107px] h-[110px] rounded-2xl object-cover"
           />
@@ -97,7 +97,7 @@ export const ProfileCard = ({
             {socialLinks.map((link, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2.5 justify-center p-2.5 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-[13px] font-medium cursor-pointer w-full"
+                className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
               >
                 <div>{link.icon}</div>
                 <p>{link.label}</p>
