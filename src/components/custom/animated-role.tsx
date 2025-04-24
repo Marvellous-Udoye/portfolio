@@ -31,7 +31,7 @@ export const AnimatedRole = ({
   return (
     <div className={`flex items-center gap-1 text-xs md:text-sm ${className}`}>
       <span className="text-[#999] font-medium whitespace-nowrap h-6">
-        I'm a
+        I&apos;m a
       </span>
       <div className={`relative h-6 w-full overflow-hidden ${className}`}>
         <AnimatePresence initial={false}>
