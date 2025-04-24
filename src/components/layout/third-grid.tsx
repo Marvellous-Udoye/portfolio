@@ -73,7 +73,7 @@ export const ThirdGrid = () => {
                 Let&apos;s Work Together
               </CardTitle>
               <CardDescription className="py-1.5 px-2.5 text-[#999] font-medium text-sm">
-                Let's Make Magic Happen!
+                Let&apos;s Make Magic Happen!
               </CardDescription>
             </div>
           </CardHeader>
