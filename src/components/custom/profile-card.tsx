@@ -5,10 +5,11 @@ import { ResumeIcon, StatusIcon } from "../icons/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Badge } from "../ui/badge";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
+import { AnimatedRole } from "./animated-role";
 
 interface ProfileCardProps {
   name: string;
-  role: string;
+  roles: string[];
   imageUrl: string;
   initials?: string;
   profileDetails: {
@@ -24,7 +25,7 @@ interface ProfileCardProps {
 
 export const ProfileCard = ({
   name,
-  role,
+  roles = ["Frontend Developer"],
   imageUrl,
   initials = "MU",
   profileDetails = [],
@@ -54,7 +55,7 @@ export const ProfileCard = ({
                 <div className="animate-pulse">
                   <StatusIcon />
                 </div>
-                <p>Available to work</p>
+                <p>available to work</p>
               </Badge>
 
               <Badge className="hidden text-[#CCC] text-xs md:text-[13px] font-medium md:flex gap-2 items-center ">
@@ -68,10 +69,7 @@ export const ProfileCard = ({
               <h3 className="text-[#E6E6E6] text-[18px] md:text-[22px] leading-6 font-semibold">
                 {name}
               </h3>
-              <p className="flex gap-1 text-xs md:text-sm">
-                <span className="text-[#999] font-medium"> I&apos;m a</span>
-                <span className="text-[#916CE7] font-medium">{role}</span>
-              </p>
+              <AnimatedRole roles={roles} transitionDuration={3} />
             </div>
           </div>
         </CardHeader>

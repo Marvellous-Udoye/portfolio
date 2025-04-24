@@ -30,14 +30,14 @@ export const StatsCard = ({ icon, text, count }: StatsProps) => {
           <FaPlus color="#916CE7" className="size-4 md:size-5" />
         </div>
         <div
-          className="absolute left-[0.832px] top-[2px] w-full h-2 pointer-events-none"
+          className="absolute left-[0.832px] top-[2px] w-full h-1.5 md:h-2 pointer-events-none"
           style={{
             background:
               "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, #111 100%)",
           }}
         ></div>
         <div
-          className="absolute left-[0.832px] bottom-[2px] w-full h-5 pointer-events-none"
+          className="absolute left-[0.832px] bottom-[2px] w-full h-4 md:h-5 pointer-events-none"
           style={{
             background:
               "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #111 100%)",

@@ -120,7 +120,12 @@ export const SecondGrid = () => {
 
       <ProfileCard
         name="Marvellous Udoye"
-        role="Frontend Developer"
+        roles={[
+          "Frontend Developer",
+          "UI/UX Specialist",
+          "Responsive Design Expert",
+          "Next.js Engineer",
+        ]}
         imageUrl="/profile-picture.jpg"
         initials="MU"
         profileDetails={profileDetails}

@@ -12,7 +12,7 @@ export const ExperienceCard = ({
   icon,
 }: ExperienceCardProps) => {
   return (
-    <Card className="flex flex-row items-start gap-2.5 p-3 rounded-[12px] bg-[#191919]">
+    <Card className="flex flex-row items-start gap-2.5 py-3 px-2.5 rounded-[12px] bg-[#191919]">
       <div className="flex items-center justify-center h-[40px] min-w-[40px] bg-[#282828] rounded-md shrink-0">
         {icon}
       </div>

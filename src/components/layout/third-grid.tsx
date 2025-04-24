@@ -53,7 +53,7 @@ const experiences = [
     icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
-    company: "Mobtech",
+    company: "Mobtech Limited",
     date: "09/21 — 10/22",
     icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
