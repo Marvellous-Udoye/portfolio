@@ -42,7 +42,7 @@ export const FlipNumber = ({ number, className = "" }: FlipNumberProps) => {
     }, 100);
 
     return () => clearInterval(interval);
-  }, [number, isAnimating, targetNumber]);
+  }, [number]);
 
   const formattedNumber = displayNumber.toString().padStart(2, "0");
   const digits = formattedNumber.split("").map(Number);

@@ -49,22 +49,22 @@ const experiences = [
   },
   {
     company: "Ghreatness Labs",
-    date: "08/22 — Present",
+    date: "11/24 — 04/25",
     icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
     company: "Mobtech Limited",
-    date: "09/21 — 10/22",
+    date: "10/24 — 04/25",
     icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
     company: "Archibuzz",
-    date: "08/22 — Present",
+    date: "08/24 — 10/24",
     icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
     company: "HNG Tech",
-    date: "08/20 — 12/21",
+    date: "06/24",
     icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
 ];
@@ -196,10 +196,10 @@ export const ThirdGrid = () => {
             </div>
             <div className="flex flex-col gap-[5px]">
               <CardTitle className="text-[#E6E6E6] font-semibold text-[20px] leading-6">
-                Let&apos;s Work Together
+                Let&apos;s connect
               </CardTitle>
               <CardDescription className="py-1.5 px-2.5 text-[#999] font-medium text-sm">
-                Let&apos;s Make Magic Happen!
+                Thanks for visiting my portfolio!
               </CardDescription>
             </div>
           </CardHeader>

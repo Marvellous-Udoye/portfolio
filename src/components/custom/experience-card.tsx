@@ -17,7 +17,7 @@ export const ExperienceCard = ({
         {icon}
       </div>
       <div className="flex flex-col gap-1">
-        <p className="text-[#CCCCCC] text-sm font-medium">{company}</p>
+        <p className="text-[#916CE7] text-sm font-medium">{company}</p>
         <span className="text-[#999999] text-xs">{date}</span>
       </div>
     </Card>

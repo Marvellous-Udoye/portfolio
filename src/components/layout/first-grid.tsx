@@ -10,7 +10,23 @@ import {
   FaJs,
   FaPython,
   FaReact,
+  FaLaravel,
+  FaNode,
+  FaServer,
+  FaMobile,
+  FaDatabase,
 } from "react-icons/fa";
+import { SiNestjs, SiNextdotjs, SiDjango, SiFlutter } from "react-icons/si";
+import {
+  HiOutlineCode,
+  HiOutlineLightBulb,
+  HiOutlineUserGroup,
+  HiOutlineChatAlt,
+  HiOutlineDocumentReport,
+  HiOutlineAcademicCap,
+  HiOutlineChip,
+  HiOutlineClock,
+} from "react-icons/hi";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { PaginatedStacks } from "../custom/paginated-stacks";
@@ -37,7 +53,7 @@ const stacks = [
     text: "React",
   },
   {
-    icon: <FaPython color="#CCCCCC" size={24} />,
+    icon: <SiNextdotjs color="#CCCCCC" size={24} />,
     text: "Python",
   },
   {
@@ -60,20 +76,24 @@ const stacks = [
 
 const services = [
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <HiOutlineLightBulb color="#CCCCCC" size={24} />,
+    text: "Problem Solving",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <HiOutlineUserGroup color="#CCCCCC" size={24} />,
+    text: "Team Leadership",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <HiOutlineChatAlt color="#CCCCCC" size={24} />,
+    text: "Communication",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <HiOutlineClock color="#CCCCCC" size={24} />,
+    text: "Time Management",
+  },
+  {
+    icon: <FaServer color="#CCCCCC" size={24} />,
+    text: "DevOps & Deployment",
   },
 ];
 

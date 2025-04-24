@@ -123,8 +123,9 @@ export const SecondGrid = () => {
         roles={[
           "Frontend Developer",
           "UI/UX Specialist",
-          "Responsive Design Expert",
           "Next.js Engineer",
+          "Responsive Design Expert",
+          "HNG12 Finalist",
         ]}
         imageUrl="/profile-picture.jpg"
         initials="MU"
