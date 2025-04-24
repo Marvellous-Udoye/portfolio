@@ -15,7 +15,7 @@ export const StatsCard = ({ icon, text, count }: StatsProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 100);
+    }, 50);
 
     return () => clearTimeout(timer);
   }, []);
