@@ -31,7 +31,7 @@ export const ProfileCard = ({
   socialLinks = [],
 }: ProfileCardProps) => {
   return (
-    <Card className="p-5 min-h-[345px] flex flex-col gap-5">
+    <Card className="p-5 min-h-[345px] flex flex-col gap-7.5">
       <div className="flex items-center gap-4">
         <Avatar>
           <AvatarImage

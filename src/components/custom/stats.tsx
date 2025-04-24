@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { Card } from "../ui/card";
+import { FlipNumber } from "./flip-number";
 
 interface StatsProps {
   icon: React.ReactNode;
@@ -8,12 +10,22 @@ interface StatsProps {
 }
 
 export const StatsCard = ({ icon, text, count }: StatsProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Card className="pt-5 px-1.5 pb-1.5 md:px-2.5 flex flex-col gap-2 rounded-[14px] w-full">
       <div className="relative">
-        <div className="flex items-center justify-center gap-1.5 ">
-          <h1 className="text-[#999] font-medium text-4xl sm:text-5xl">
-            {count}
+        <div className="flex items-center justify-center gap-1.5">
+          <h1 className="text-[#999] font-medium text-4xl sm:text-5xl flex">
+            {isVisible ? <FlipNumber number={count} /> : <span>01</span>}
           </h1>
           <FaPlus color="#916CE7" className="size-4 md:size-5" />
         </div>

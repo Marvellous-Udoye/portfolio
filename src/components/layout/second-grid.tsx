@@ -40,19 +40,19 @@ const clients = [
 
 const stats = [
   {
-    icon: <FirstStatIcon />,
-    text: "Projects",
-    count: 20,
-  },
-  {
     icon: <SecondStatIcon />,
-    text: "Clients",
-    count: 39,
+    text: "Experience",
+    count: 1,
   },
   {
     icon: <ThirdStatIcon />,
-    text: "Expertise",
-    count: 94,
+    text: "Collabs",
+    count: 5,
+  },
+  {
+    icon: <FirstStatIcon />,
+    text: "Projects",
+    count: 27,
   },
 ];
 
