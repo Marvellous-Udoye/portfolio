@@ -55,18 +55,18 @@ export const ProfileCard = ({
                 <p>Available To Work</p>
               </Badge>
 
-              <Badge className="text-[#CCC] text-xs md:text-[13px] font-medium flex gap-2 items-center ">
-                <p className="hidden md:inline-block">Resume</p>
+              <Badge className="hidden text-[#CCC] text-xs md:text-[13px] font-medium md:flex gap-2 items-center ">
+                <p>Resume</p>
                 <div className="cursor-pointer">
                   <ResumeIcon />
                 </div>
               </Badge>
             </div>
             <div className="flex flex-col gap-2.5">
-              <h3 className="text-[#E6E6E6] text-[22px] leading-6 font-semibold">
+              <h3 className="text-[#E6E6E6] text-[18px] md:text-[22px] leading-6 font-semibold">
                 {name}
               </h3>
-              <p className="flex gap-1 text-sm">
+              <p className="flex gap-1 text-xs md:text-sm">
                 <span className="text-[#999] font-medium"> I&apos;m a</span>
                 <span className="text-[#916CE7] font-medium">{role}</span>
               </p>
@@ -93,7 +93,7 @@ export const ProfileCard = ({
         )}
       </CardContent>
 
-      <CardFooter className="px-0">
+      <CardFooter className="px-0 flex flex-col gap-3">
         {socialLinks.length > 0 && (
           <div className="flex gap-3 w-full">
             {socialLinks.map((link, index) => (
@@ -108,6 +108,15 @@ export const ProfileCard = ({
             ))}
           </div>
         )}
+        <Link
+          href={"/"}
+          className="flex md:hidden items-center gap-2.5 justify-center px-2.5 py-2 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
+        >
+          <div>
+            <ResumeIcon />
+          </div>
+          <p>Resume</p>
+        </Link>
       </CardFooter>
     </Card>
   );

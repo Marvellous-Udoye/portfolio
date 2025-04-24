@@ -9,10 +9,10 @@ interface StatsProps {
 
 export const StatsCard = ({ icon, text, count }: StatsProps) => {
   return (
-    <Card className="pt-5 px-1.5 md:px-2.5 flex flex-col gap-2 rounded-[14px] w-full">
+    <Card className="pt-5 px-1.5 pb-1.5 md:px-2.5 flex flex-col gap-2 rounded-[14px] w-full">
       <div className="relative">
         <div className="flex items-center justify-center gap-1.5 ">
-          <h1 className="text-[#999] font-medium text-4xl sm:text-5xl md:text-6xl">
+          <h1 className="text-[#999] font-medium text-4xl sm:text-5xl">
             {count}
           </h1>
           <FaPlus color="#916CE7" className="size-4 md:size-5" />
@@ -32,7 +32,7 @@ export const StatsCard = ({ icon, text, count }: StatsProps) => {
           }}
         ></div>
       </div>
-      <div className="flex gap-1.5 md:gap-2.5 items-center justify-center bg-[#141414] rounded-full border-[0.5px] border-[rgba(255,255,255,0.05)] text-[#ccc] text-[13px] font-medium md:px-5 py-1.5 ">
+      <div className="flex gap-1.5 md:gap-2.5 items-center justify-center bg-[#141414] rounded-full border-[0.5px] border-[rgba(255,255,255,0.05)] text-[#ccc] text-[10px] md:text-[13px] font-medium px-1 md:px-3 py-1.5 ">
         <div>{icon}</div>
         <p> {text}</p>
       </div>
