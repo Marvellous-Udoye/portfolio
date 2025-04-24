@@ -147,7 +147,7 @@ export const ThirdGrid = () => {
           </CardHeader>
           <CardContent className="grid grid-cols-1 gap-3 px-0">
             <Link
-              href={"/"}
+              href={"mailto:marveldoc17@gmail.com"}
               className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
             >
               <div>
@@ -156,7 +156,7 @@ export const ThirdGrid = () => {
               <p>Email Me</p>
             </Link>
             <Link
-              href={"/"}
+              href={"https://wa.link/opsfaw"}
               className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
             >
               <div>
