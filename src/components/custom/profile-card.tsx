@@ -39,7 +39,7 @@ export const ProfileCard = ({
             alt={name}
             className="w-[107px] h-[110px] rounded-2xl object-cover"
           />
-          <AvatarFallback className="bg-[#1D1B23] text-[#CCC] text-lg font-medium">
+          <AvatarFallback className="bg-[#1D1B23] w-[107px] h-[110px] text-[#CCC] text-lg font-medium">
             {initials}
           </AvatarFallback>
         </Avatar>
@@ -49,10 +49,12 @@ export const ProfileCard = ({
             <div className="flex items-center justify-between w-full">
               <Badge
                 variant="outline"
-                className="bg-[#141414] border-[0.5px] border-[rgba(255,255,255,0.05)] px-2.5 py-1.5 rounded-full flex gap-2.5 text-xs md:text-[13px] font-medium text-[#999]"
+                className="bg-[#141414] border-[0.5px] border-[rgba(255,255,255,0.05)] px-2.5 py-1.5 rounded-full flex gap-2 text-xs md:text-[13px] font-medium text-[#999]"
               >
-                <StatusIcon />
-                <p>Available To Work</p>
+                <div className="animate-pulse">
+                  <StatusIcon />
+                </div>
+                <p>Available to work</p>
               </Badge>
 
               <Badge className="hidden text-[#CCC] text-xs md:text-[13px] font-medium md:flex gap-2 items-center ">
@@ -100,6 +102,7 @@ export const ProfileCard = ({
               <Link
                 key={index}
                 href={link.link}
+                target="_blank"
                 className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
               >
                 <div>{link.icon}</div>

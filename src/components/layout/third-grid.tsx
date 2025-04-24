@@ -1,6 +1,11 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaHtml5 } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { FaBuilding, FaHtml5 } from "react-icons/fa";
 import { Header } from "../custom/card-header";
+import { ExperienceCard } from "../custom/experience-card";
 import { MiniCard } from "../custom/mini-card";
 import {
   ContactIcon,
@@ -36,30 +41,49 @@ const stacks = [
   },
 ];
 
-const highlights = [
+const experiences = [
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    company: "HNG Tech",
+    date: "02/25 — 04/25",
+    icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    company: "Ghreatness Labs",
+    date: "08/22 — Present",
+    icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    company: "Mobtech",
+    date: "09/21 — 10/22",
+    icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    company: "Archibuzz",
+    date: "08/22 — Present",
+    icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    company: "HNG Tech",
+    date: "08/20 — 12/21",
+    icon: <FaBuilding color="#CCCCCC" size={20} />,
   },
 ];
 
 export const ThirdGrid = () => {
+  const [isDragging, setIsDragging] = useState(false);
+  const constraintsRef = useRef(null);
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollHeight, setScrollHeight] = useState(0);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      setScrollHeight(scrollRef.current.scrollHeight);
+    }
+  }, []);
+
+  const extendedExperiences = [...experiences, ...experiences];
+
   return (
     <section className="grid grid-cols-1 gap-3">
       <div className="flex max-md:flex-col gap-3 w-full">
@@ -99,20 +123,54 @@ export const ThirdGrid = () => {
           </CardContent>
         </Card>
 
-        <Card className="flex flex-col rounded-[20px] md:max-w-[225px] w-full gap-4">
+        <Card className="flex flex-col rounded-[20px] md:max-w-[245px] w-full gap-4">
           <Header
-            title="Work Process"
-            description="Workflow Highlights"
+            title="Experience"
+            description="Work Highlights"
             icon={<WorkIcon />}
           />
           <div className="h-[1px] bg-[rgba(255,255,255,0.06)]"></div>
-          <CardContent className="grid grid-cols-1 gap-2 px-5">
-            {highlights.map((stack, index) => (
-              <div key={index}>
-                <MiniCard icon={stack.icon} text={stack.text} />
-              </div>
-            ))}
-          </CardContent>
+
+          <div className="relative h-64 overflow-hidden">
+            <motion.div
+              ref={constraintsRef}
+              className="absolute inset-0"
+              style={{ overflow: "hidden" }}
+            >
+              <motion.div
+                ref={scrollRef}
+                className="px-5 space-y-3"
+                drag="y"
+                dragConstraints={constraintsRef}
+                onDragStart={() => setIsDragging(true)}
+                onDragEnd={() => setIsDragging(false)}
+                animate={
+                  !isDragging
+                    ? {
+                        y: [-scrollHeight / 2, 0],
+                        transition: {
+                          y: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 20,
+                            ease: "linear",
+                          },
+                        },
+                      }
+                    : undefined
+                }
+              >
+                {extendedExperiences.map((experience, index) => (
+                  <ExperienceCard
+                    key={index}
+                    company={experience.company}
+                    date={experience.date}
+                    icon={experience.icon}
+                  />
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
         </Card>
       </div>
 
@@ -148,6 +206,7 @@ export const ThirdGrid = () => {
           <CardContent className="grid grid-cols-1 gap-3 px-0">
             <Link
               href={"mailto:marveldoc17@gmail.com"}
+              target="_blank"
               className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
             >
               <div>
@@ -157,6 +216,7 @@ export const ThirdGrid = () => {
             </Link>
             <Link
               href={"https://wa.link/opsfaw"}
+              target="_blank"
               className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
             >
               <div>
