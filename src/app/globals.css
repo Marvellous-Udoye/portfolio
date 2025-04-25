@@ -124,3 +124,16 @@
 .font-jakarta {
   font-family: var(--font-jakarta);
 }
+
+[data-slot="card"] {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.3s ease;
+}
+
+[data-slot="card"]:hover {
+  transform: scale(0.98);
+  border-color: rgba(145, 108, 231, 0.4);
+  box-shadow: 
+    0 0 10px rgba(145, 108, 231, 0.2),
+    0 0 20px rgba(145, 108, 231, 0.1),
+    0 0 30px rgba(145, 108, 231, 0.05);
+}
