@@ -124,7 +124,6 @@ export const SecondGrid = () => {
           "Frontend Developer",
           "UI/UX Specialist",
           "Next.js Engineer",
-          "Responsive Design Expert",
           "HNG12 Finalist",
         ]}
         imageUrl="/profile-picture.jpg"
@@ -153,7 +152,7 @@ export const SecondGrid = () => {
         <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
           <motion.div
             ref={clientsCarouselForward}
-            className="cursor-grab overflow-hidden"
+            className="overflow-hidden"
           >
             <motion.div
               className="flex"
@@ -178,7 +177,7 @@ export const SecondGrid = () => {
 
           <motion.div
             ref={clientsCarouselBackward}
-            className="cursor-grab overflow-hidden"
+            className="overflow-hidden"
           >
             <motion.div
               className="flex"

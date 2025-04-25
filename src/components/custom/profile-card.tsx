@@ -31,6 +31,10 @@ export const ProfileCard = ({
   profileDetails = [],
   socialLinks = [],
 }: ProfileCardProps) => {
+  const handleResumeView = () => {
+    window.open("/Resume- Marvellous Udoye.pdf", "_blank");
+  };
+
   return (
     <Card className="p-5 min-h-[345px] flex flex-col gap-7.5">
       <div className="flex items-center gap-4">
@@ -60,7 +64,7 @@ export const ProfileCard = ({
 
               <Badge className="hidden text-[#CCC] text-xs md:text-[13px] font-medium md:flex gap-2 items-center ">
                 <p>Resume</p>
-                <div className="cursor-pointer">
+                <div className="cursor-pointer" onClick={handleResumeView}>
                   <ResumeIcon />
                 </div>
               </Badge>
@@ -110,7 +114,8 @@ export const ProfileCard = ({
           </div>
         )}
         <Link
-          href={"/"}
+          href={""}
+          onClick={handleResumeView}
           className="flex md:hidden items-center gap-2.5 justify-center px-2.5 py-2 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
         >
           <div>
