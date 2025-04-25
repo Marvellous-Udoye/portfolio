@@ -19,7 +19,6 @@ export const PaginatedStacks = ({ stacks }: PaginatedStacksProps) => {
   const totalPages = Math.ceil(stacks.length / itemsPerPage);
 
   const x = useMotionValue(0);
-  const dragConstraints = { right: 0, left: -(totalPages - 1) * carouselWidth };
 
   const handleDragEnd = (
     event: MouseEvent | TouchEvent | PointerEvent,
@@ -34,14 +33,71 @@ export const PaginatedStacks = ({ stacks }: PaginatedStacksProps) => {
         : -1;
 
     let newPage = currentPage + direction;
-
     newPage = Math.max(0, Math.min(totalPages - 1, newPage));
-
     setCurrentPage(newPage);
   };
 
-  const renderPaginationDots = () => {
-    return (
+  const handlePageChange = (pageIndex: number) => {
+    setCurrentPage(pageIndex);
+  };
+
+  useEffect(() => {
+    const measureWidth = () => {
+      if (carouselRef.current) {
+        setCarouselWidth(carouselRef.current.offsetWidth);
+      }
+    };
+
+    measureWidth();
+    window.addEventListener("resize", measureWidth);
+    return () => window.removeEventListener("resize", measureWidth);
+  }, []);
+
+  useEffect(() => {
+    x.set(-currentPage * carouselWidth);
+  }, [currentPage, carouselWidth, x]);
+
+  const paginatedStacks = Array.from({ length: totalPages }, (_, i) =>
+    stacks.slice(i * itemsPerPage, i * itemsPerPage + itemsPerPage)
+  );
+
+  return (
+    <div className="flex flex-col">
+      <div className="overflow-hidden" ref={carouselRef}>
+        {carouselWidth > 0 && (
+          <motion.div
+            className="flex"
+            drag="x"
+            dragConstraints={{
+              left: -(carouselWidth * (totalPages - 1)),
+              right: 0,
+            }}
+            dragElastic={0.1}
+            onDragEnd={handleDragEnd}
+            style={{
+              x,
+              width: `${100 * totalPages}%`,
+            }}
+            animate={{ x: -currentPage * carouselWidth }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            {paginatedStacks.map((page, pageIndex) => (
+              <div
+                key={pageIndex}
+                className="grid grid-cols-2 gap-2 px-2"
+                style={{
+                  width: `${carouselWidth}px`,
+                }}
+              >
+                {page.map((stack, i) => (
+                  <MiniCard key={i} icon={stack.icon} text={stack.text} />
+                ))}
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </div>
+
       <div className="flex justify-center mt-4 gap-2">
         {Array.from({ length: totalPages }).map((_, index) => (
           <motion.div
@@ -55,65 +111,6 @@ export const PaginatedStacks = ({ stacks }: PaginatedStacksProps) => {
           />
         ))}
       </div>
-    );
-  };
-
-  const handlePageChange = (pageIndex: number) => {
-    setCurrentPage(pageIndex);
-  };
-
-  useEffect(() => {
-    if (carouselRef.current) {
-      const containerWidth = carouselRef.current.offsetWidth;
-      setCarouselWidth(containerWidth);
-    }
-
-    const handleResize = () => {
-      if (carouselRef.current) {
-        setCarouselWidth(carouselRef.current.offsetWidth);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    x.set(-currentPage * carouselWidth);
-  }, [currentPage, carouselWidth, x]);
-
-  return (
-    <div className="flex flex-col">
-      <div className="overflow-hidden" ref={carouselRef}>
-        <motion.div
-          className="grid grid-cols-2 gap-2"
-          drag="x"
-          dragConstraints={dragConstraints}
-          dragElastic={0.1}
-          onDragEnd={handleDragEnd}
-          style={{
-            x,
-            width: `${totalPages * 100}%`,
-            display: "grid",
-            gridTemplateColumns: `repeat(${totalPages * 2}, 1fr)`,
-          }}
-          animate={{
-            x: -currentPage * carouselWidth,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-          }}
-        >
-          {stacks.map((stack: StackItem, index: number) => (
-            <div key={index} className="px-1">
-              <MiniCard icon={stack.icon} text={stack.text} />
-            </div>
-          ))}
-        </motion.div>
-      </div>
-      {renderPaginationDots()}
     </div>
   );
 };

@@ -3,30 +3,36 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import {
-  FaCss3,
+  FaCss3Alt,
+  FaFigma,
   FaGit,
   FaGithub,
   FaHtml5,
   FaJs,
   FaPython,
   FaReact,
-  FaLaravel,
-  FaNode,
   FaServer,
-  FaMobile,
-  FaDatabase,
 } from "react-icons/fa";
-import { SiNestjs, SiNextdotjs, SiDjango, SiFlutter } from "react-icons/si";
 import {
-  HiOutlineCode,
+  HiOutlineChatAlt,
+  HiOutlineClock,
   HiOutlineLightBulb,
   HiOutlineUserGroup,
-  HiOutlineChatAlt,
-  HiOutlineDocumentReport,
-  HiOutlineAcademicCap,
-  HiOutlineChip,
-  HiOutlineClock,
 } from "react-icons/hi";
+import {
+  SiDjango,
+  SiFirebase,
+  SiFramer,
+  SiJest,
+  SiNextdotjs,
+  SiPostman,
+  SiRedux,
+  SiSass,
+  SiShadcnui,
+  SiTailwindcss,
+  SiTypescript,
+  SiVitest,
+} from "react-icons/si";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { PaginatedStacks } from "../custom/paginated-stacks";
@@ -36,42 +42,27 @@ import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 
 const stacks = [
-  {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML5",
-  },
-  {
-    icon: <FaCss3 color="#CCCCCC" size={24} />,
-    text: "CSS3",
-  },
-  {
-    icon: <FaJs color="#CCCCCC" size={24} />,
-    text: "JavaScript",
-  },
-  {
-    icon: <FaReact color="#CCCCCC" size={24} />,
-    text: "React",
-  },
-  {
-    icon: <SiNextdotjs color="#CCCCCC" size={24} />,
-    text: "Python",
-  },
-  {
-    icon: <FaGit color="#CCCCCC" size={24} />,
-    text: "Git",
-  },
-  {
-    icon: <FaGithub color="#CCCCCC" size={24} />,
-    text: "GitHub",
-  },
-  {
-    icon: <FaPython color="#CCCCCC" size={24} />,
-    text: "React",
-  },
-  {
-    icon: <FaPython color="#CCCCCC" size={24} />,
-    text: "React",
-  },
+  { icon: <FaHtml5 color="#CCCCCC" size={24} />, text: "HTML5" },
+  { icon: <FaCss3Alt color="#CCCCCC" size={24} />, text: "CSS3" },
+  { icon: <FaJs color="#CCCCCC" size={24} />, text: "JavaScript" },
+  { icon: <SiTypescript color="#CCCCCC" size={24} />, text: "TypeScript" },
+  { icon: <FaReact color="#CCCCCC" size={24} />, text: "React" },
+  { icon: <SiNextdotjs color="#CCCCCC" size={24} />, text: "Next.js" },
+  { icon: <SiTailwindcss color="#CCCCCC" size={24} />, text: "Tailwind CSS" },
+  { icon: <SiSass color="#CCCCCC" size={24} />, text: "SASS" },
+  { icon: <SiSass color="#CCCCCC" size={24} />, text: "SCSS" },
+  { icon: <SiFramer color="#CCCCCC" size={24} />, text: "Framer Motion" },
+  { icon: <SiRedux color="#CCCCCC" size={24} />, text: "Redux" },
+  { icon: <SiShadcnui color="#CCCCCC" size={24} />, text: "ShadCN" },
+  { icon: <FaGit color="#CCCCCC" size={24} />, text: "Git" },
+  { icon: <FaGithub color="#CCCCCC" size={24} />, text: "GitHub" },
+  { icon: <SiJest color="#CCCCCC" size={24} />, text: "Jest" },
+  { icon: <SiVitest color="#CCCCCC" size={24} />, text: "Vitest" },
+  { icon: <FaFigma color="#CCCCCC" size={24} />, text: "Figma" },
+  { icon: <SiFirebase color="#CCCCCC" size={24} />, text: "Firebase" },
+  { icon: <SiDjango color="#CCCCCC" size={24} />, text: "Django" },
+  { icon: <FaPython color="#CCCCCC" size={24} />, text: "Python" },
+  { icon: <SiPostman color="#CCCCCC" size={24} />, text: "RESTful API" },
 ];
 
 const services = [
@@ -150,7 +141,7 @@ export const FirstGrid = () => {
 
   return (
     <section className="grid grid-cols-1 gap-3">
-      <Card className="p-5 flex flex-col gap-7.5 rounded-[20px]">
+      <Card className="py-5 px-3 flex flex-col gap-7.5 rounded-[20px]">
         <Header
           title="My Stacks"
           description="Tech Arsenal"
@@ -207,10 +198,7 @@ export const FirstGrid = () => {
           icon={<ServicesIcon />}
         />
         <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
-          <motion.div
-            ref={servicesCarouselForward}
-            className="cursor-grab overflow-hidden"
-          >
+          <motion.div ref={servicesCarouselForward} className="overflow-hidden">
             <motion.div
               className="flex"
               initial={{ x: 0 }}
@@ -219,7 +207,7 @@ export const FirstGrid = () => {
                 transition: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 15,
+                  duration: 45,
                   ease: "linear",
                 },
               }}
@@ -234,7 +222,7 @@ export const FirstGrid = () => {
 
           <motion.div
             ref={servicesCarouselBackward}
-            className="cursor-grab overflow-hidden"
+            className="overflow-hidden"
           >
             <motion.div
               className="flex"
@@ -244,7 +232,7 @@ export const FirstGrid = () => {
                 transition: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 15,
+                  duration: 45,
                   ease: "linear",
                 },
               }}

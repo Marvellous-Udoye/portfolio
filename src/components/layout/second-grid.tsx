@@ -52,7 +52,7 @@ const stats = [
   {
     icon: <FirstStatIcon />,
     text: "Projects",
-    count: 27,
+    count: 28,
   },
 ];
 
@@ -70,7 +70,7 @@ const profileDetails = [
     icon: <FirstStatIcon />,
   },
   {
-    label: "Bells University",
+    label: "Bells University of Tech",
     icon: <DegreeIcon />,
   },
   {
