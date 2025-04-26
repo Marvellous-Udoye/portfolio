@@ -70,7 +70,7 @@ const profileDetails = [
     icon: <FirstStatIcon />,
   },
   {
-    label: "Bells University of Tech",
+    label: "Bells University of Technology",
     icon: <DegreeIcon />,
   },
   {
