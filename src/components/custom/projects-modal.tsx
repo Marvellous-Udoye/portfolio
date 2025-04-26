@@ -19,7 +19,7 @@ import { SiFramer, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 const projectsData = [
   {
     id: 1,
-    name: "GenZ.AD",
+    name: "Genz.ad",
     image: "/genz.ad.jpg",
     logo: "/genz.ad.jpg",
     description:
@@ -324,13 +324,27 @@ export const ProjectsModal = ({ type = "projects" }) => {
         </motion.div>
 
         <motion.p
-          className="mb-8 text-gray-300"
+          className="text-gray-300"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
           {project.description}
         </motion.p>
+
+        <div className="flex items-center gap-3">
+          {project.techStack.map((stack, index) => (
+            <motion.div
+              key={index}
+              className="mt-4 mb-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              {stack}
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           className="flex gap-2 mb-4"
