@@ -21,7 +21,7 @@ const projectsData = [
     id: 1,
     name: "GenZ.AD",
     image: "/genz.ad.jpg",
-    logo: "/genz-logo.png",
+    logo: "/genz.ad.jp",
     description:
       "A modern advertising platform targeting Gen Z audiences with interactive ad experiences and analytics.",
     techStack: [
@@ -37,7 +37,7 @@ const projectsData = [
     id: 2,
     name: "Departmental Portal",
     image: "/departmental-portal.jpg",
-    logo: "/dept-logo.png",
+    logo: "/departmental-portal.jpg",
     description:
       "A comprehensive portal for university departments to manage courses, students, and faculty resources.",
     techStack: [
@@ -52,7 +52,7 @@ const projectsData = [
     id: 3,
     name: "MyUni",
     image: "/my-uni.jpg",
-    logo: "/myuni-logo.png",
+    logo: "/my-uni.jpg",
     description:
       "A student-focused application for managing university life including schedules, assignments, and campus events.",
     techStack: [
@@ -67,7 +67,7 @@ const projectsData = [
     id: 4,
     name: "DevLinks",
     image: "/devlinks.png",
-    logo: "/devlinks-logo.png",
+    logo: "/devlinks.png",
     description:
       "A centralized platform for developers to organize and share all their important links and resources.",
     techStack: [
@@ -82,7 +82,7 @@ const projectsData = [
     id: 5,
     name: "Woodz",
     image: "/woodz.png",
-    logo: "/woodz-logo.png",
+    logo: "/woodz.png",
     description:
       "An e-commerce platform for artisanal wooden furniture with customizable options and 3D previews.",
     techStack: [
@@ -97,7 +97,7 @@ const projectsData = [
     id: 6,
     name: "Book Tracker",
     image: "/book-tracker.png",
-    logo: "/booktracker-logo.png",
+    logo: "/book-tracker.png",
     description:
       "A personal library management system to track reading progress, take notes, and discover new books.",
     techStack: [
