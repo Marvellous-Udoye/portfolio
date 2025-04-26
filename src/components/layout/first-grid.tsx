@@ -181,7 +181,7 @@ export const FirstGrid = () => {
             </motion.div>
           </motion.div>
         </CardContent>
-        <div className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2">
+        <div className="absolute bottom-4.5 left-1/4 max-xl:left-1/2 max-xl:-translate-x-1/2">
           <ProjectsModal type="projects" />
         </div>
       </Card>
@@ -240,7 +240,7 @@ export const FirstGrid = () => {
             </motion.div>
           </motion.div>
         </CardContent>
-        <div className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2">
+        <div className="absolute bottom-4.5 left-[20%] max-xl:left-1/2 max-xl:-translate-x-1/2">
           <ProjectsModal type="services" />
         </div>
       </Card>

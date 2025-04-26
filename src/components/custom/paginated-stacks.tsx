@@ -89,8 +89,8 @@ export const PaginatedStacks = ({ stacks }: PaginatedStacksProps) => {
                   width: `${carouselWidth}px`,
                 }}
               >
-                {page.map((stack, i) => (
-                  <MiniCard key={i} icon={stack.icon} text={stack.text} />
+                {page.map((stack, index) => (
+                  <MiniCard key={index} icon={stack.icon} text={stack.text} />
                 ))}
               </div>
             ))}

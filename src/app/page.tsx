@@ -7,10 +7,10 @@ export default function Home() {
   return (
     <GlobalGlowEffect>
       <div className="max-sm:px-4 p-5">
-        <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1.57fr_2fr] gap-3 max-w-[1440px] mx-auto">
+        <main className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1fr_1.57fr_2fr] gap-3 max-w-[1440px] mx-auto">
           <FirstGrid />
           <SecondGrid />
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="md:col-span-2 xl:col-span-1">
             <ThirdGrid />
           </div>
         </main>
