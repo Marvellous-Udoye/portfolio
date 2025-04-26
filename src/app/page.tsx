@@ -6,7 +6,7 @@ import { ThirdGrid } from "@/components/layout/third-grid";
 export default function Home() {
   return (
     <GlobalGlowEffect>
-      <div className="p-5">
+      <div className="max-sm:px-4 p-5">
         <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1.57fr_2fr] gap-3 max-w-[1440px] mx-auto">
           <FirstGrid />
           <SecondGrid />
