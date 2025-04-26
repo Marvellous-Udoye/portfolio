@@ -25,7 +25,6 @@ import {
   SiFramer,
   SiJest,
   SiNextdotjs,
-  SiPostman,
   SiRedux,
   SiSass,
   SiShadcnui,
@@ -37,8 +36,8 @@ import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { PaginatedStacks } from "../custom/paginated-stacks";
 import { ProjectCard } from "../custom/project-card";
+import { ProjectsModal } from "../custom/projects-modal";
 import { ProjectsIcon, ServicesIcon, StacksIcon } from "../icons/icons";
-import { Button } from "../ui/button";
 import { Card, CardContent } from "../ui/card";
 
 const stacks = [
@@ -62,7 +61,6 @@ const stacks = [
   { icon: <SiFirebase color="#CCCCCC" size={24} />, text: "Firebase" },
   { icon: <SiDjango color="#CCCCCC" size={24} />, text: "Django" },
   { icon: <FaPython color="#CCCCCC" size={24} />, text: "Python" },
-  { icon: <SiPostman color="#CCCCCC" size={24} />, text: "RESTful API" },
 ];
 
 const services = [
@@ -88,7 +86,7 @@ const services = [
   },
 ];
 
-const projects = [
+const projectsImages = [
   "/genz.ad.jpg",
   "/departmental-portal.jpg",
   "/my-uni.jpg",
@@ -159,10 +157,7 @@ export const FirstGrid = () => {
           icon={<ProjectsIcon />}
         />
         <CardContent className="px-0 overflow-hidden">
-          <motion.div
-            ref={projectsCarousel}
-            className="cursor-grab overflow-hidden"
-          >
+          <motion.div ref={projectsCarousel} className="overflow-hidden">
             <motion.div
               className="flex"
               drag="x"
@@ -178,17 +173,17 @@ export const FirstGrid = () => {
                 },
               }}
             >
-              {projects.map((project, index) => (
+              {projectsImages.map((projectImage, index) => (
                 <motion.div key={index} className="px-1 ">
-                  <ProjectCard image={project} />
+                  <ProjectCard image={projectImage} />
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
         </CardContent>
-        <Button className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
-          View Works
-        </Button>
+        <div className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2">
+          <ProjectsModal type="projects" />
+        </div>
       </Card>
 
       <Card className="relative px-3 pt-3 pb-10 flex flex-col gap-7.5 rounded-[20px]">
@@ -245,9 +240,9 @@ export const FirstGrid = () => {
             </motion.div>
           </motion.div>
         </CardContent>
-        <Button className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2 py-[13px] px-7.5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer">
-          View All Services
-        </Button>
+        <div className="absolute bottom-4.5 left-1/4 max-md:left-1/2 max-md:-translate-x-1/2">
+          <ProjectsModal type="services" />
+        </div>
       </Card>
     </section>
   );

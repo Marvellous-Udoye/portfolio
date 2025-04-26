@@ -105,6 +105,7 @@ export const ProfileCard = ({
                 key={index}
                 href={link.link}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
               >
                 <div>{link.icon}</div>

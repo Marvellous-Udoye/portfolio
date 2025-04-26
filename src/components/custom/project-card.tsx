@@ -12,6 +12,7 @@ export const ProjectCard = ({ image }: ProjectCardProps) => {
         alt="Project Card"
         width={126}
         height={80}
+        priority
         className="w-full h-full rounded-[10px] object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
         onError={(e) => {
           e.currentTarget.src = "/next.svg";
