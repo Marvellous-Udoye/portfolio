@@ -152,22 +152,17 @@ export const ProjectsModal = ({ type = "projects" }) => {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [autoSlide, setAutoSlide] = useState(true);
 
   const data = type === "projects" ? projectsData : servicesData;
 
   const nextProject = () => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % data.length);
-    setAutoSlide(false);
-    setTimeout(() => setAutoSlide(true), 10000);
   };
 
   const prevProject = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
-    setAutoSlide(false);
-    setTimeout(() => setAutoSlide(true), 10000);
   };
 
   const modalBlockVariants = {
