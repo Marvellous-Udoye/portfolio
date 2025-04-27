@@ -20,9 +20,11 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import { ProjectCard } from "../custom/project-card";
 
 const testimonials = [
   {
@@ -57,7 +59,7 @@ const hobbies = [
   },
   {
     icon: <SiCrowdsource color="#CCCCCC" size={24} />,
-    text: "Socailizing",
+    text: "Socializing",
   },
 ];
 
@@ -89,6 +91,15 @@ const experiences = [
   },
 ];
 
+const projectsImages = [
+  "/genz.ad.jpg",
+  "/departmental-portal.jpg",
+  "/my-uni.jpg",
+  "/devlinks.png",
+  "/woodz.png",
+  "/book-tracker.png",
+];
+
 export const ThirdGrid = () => {
   const [isDragging, setIsDragging] = useState(false);
   const constraintsRef = useRef(null);
@@ -113,6 +124,47 @@ export const ThirdGrid = () => {
   }, []);
 
   const extendedExperiences = [...experiences, ...experiences];
+
+  const [width, setWidth] = useState<number>(0);
+  const [serviceWidth, setServiceWidth] = useState<number>(0);
+  const projectsCarousel = useRef<HTMLDivElement>(null);
+  const servicesCarouselForward = useRef<HTMLDivElement>(null);
+  const servicesCarouselBackward = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (projectsCarousel.current) {
+      setWidth(
+        projectsCarousel.current.scrollWidth -
+          projectsCarousel.current.offsetWidth
+      );
+    }
+
+    if (servicesCarouselForward.current) {
+      setServiceWidth(
+        servicesCarouselForward.current.scrollWidth -
+          servicesCarouselForward.current.offsetWidth
+      );
+    }
+
+    const handleResize = () => {
+      if (projectsCarousel.current) {
+        setWidth(
+          projectsCarousel.current.scrollWidth -
+            projectsCarousel.current.offsetWidth
+        );
+      }
+
+      if (servicesCarouselForward.current) {
+        setServiceWidth(
+          servicesCarouselForward.current.scrollWidth -
+            servicesCarouselForward.current.offsetWidth
+        );
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="grid grid-cols-1 gap-3">
@@ -210,6 +262,31 @@ export const ThirdGrid = () => {
               />
             ))}
           </div>
+          <CardFooter className="px-0 overflow-hidden">
+            <motion.div ref={projectsCarousel} className="overflow-hidden">
+              <motion.div
+                className="flex"
+                drag="x"
+                dragConstraints={{ right: 0, left: -width }}
+                initial={{ x: 0 }}
+                animate={{
+                  x: [-width, 0],
+                  transition: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 20,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {projectsImages.map((projectImage, index) => (
+                  <motion.div key={index} className="px-1 ">
+                    <ProjectCard image={projectImage} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </CardFooter>
         </Card>
       </div>
 
