@@ -185,7 +185,7 @@ export const ThirdGrid = () => {
                 className="h-full flex flex-col justify-between"
               >
                 <p className="text-[#CCCCCC] text-sm italic">
-                  "{testimonials[current].text}"
+                  &quot;{testimonials[current].text}&quot;
                 </p>
                 <div className="mt-4">
                   <p className="text-[#E6E6E6] font-medium">
