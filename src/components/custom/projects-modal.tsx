@@ -101,6 +101,22 @@ const projectsData = [
   },
   {
     id: 6,
+    name: "Ticz",
+    image: "/ticz.jpg",
+    logo: "/ticz.jpg",
+    description:
+      "TIcket generator focusing on a seamless, login-free ticket reservation flow, allowing users to book event tickets quickly and efficiently.",
+    techStack: [
+      <FaReact key="react" />,
+      <SiTailwindcss key="tailwind" />,
+      <FaJs key="js" />,
+    ],
+    githubLink:
+      "https://github.com/Marvellous-Udoye/hngx-stage2-conference-ticket-generator",
+    liveLink: "https://conference-ticket-generator-delta.vercel.app/",
+  },
+  {
+    id: 7,
     name: "Woodz",
     image: "/woodz.png",
     logo: "/woodz.png",
@@ -115,7 +131,7 @@ const projectsData = [
     liveLink: "https://marvellous-udoye.github.io/woodz/",
   },
   {
-    id: 7,
+    id: 8,
     name: "AI Text Processor",
     image: "/ai-text-processor.jpg",
     logo: "/ai-text-processor.jpg",
@@ -131,7 +147,7 @@ const projectsData = [
     liveLink: "https://ai-text-processor-sdt.vercel.app/",
   },
   {
-    id: 8,
+    id: 9,
     name: "Book Tracker",
     image: "/book-tracker.png",
     logo: "/book-tracker.png",
@@ -146,10 +162,10 @@ const projectsData = [
     liveLink: "https://book-tracking-app-nu.vercel.app/",
   },
   {
-    id: 9,
+    id: 10,
     name: "Archibuzz",
     image: "/archibuzz.jpg",
-    logo: "/archibuzz.jpg",
+    logo: "/archibuzz-logo.jpg",
     description:
       "ARCHIBUZZ STUDIOS, where architecture and AI come together to innovate and inspire.",
     techStack: [
@@ -161,7 +177,7 @@ const projectsData = [
     liveLink: "https://archi-buzz.vercel.app/",
   },
   {
-    id: 10,
+    id: 11,
     name: "Timbu Cloud Store",
     image: "/timbu.jpg",
     logo: "/timbu.jpg",
