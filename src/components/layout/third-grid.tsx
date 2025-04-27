@@ -9,6 +9,7 @@ import { SiCrowdsource } from "react-icons/si";
 import { Header } from "../custom/card-header";
 import { ExperienceCard } from "../custom/experience-card";
 import { MiniCard } from "../custom/mini-card";
+import { ProjectCard } from "../custom/project-card";
 import {
   ContactIcon,
   EmailIcon,
@@ -24,7 +25,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { ProjectCard } from "../custom/project-card";
 
 const testimonials = [
   {
@@ -126,10 +126,7 @@ export const ThirdGrid = () => {
   const extendedExperiences = [...experiences, ...experiences];
 
   const [width, setWidth] = useState<number>(0);
-  const [serviceWidth, setServiceWidth] = useState<number>(0);
   const projectsCarousel = useRef<HTMLDivElement>(null);
-  const servicesCarouselForward = useRef<HTMLDivElement>(null);
-  const servicesCarouselBackward = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (projectsCarousel.current) {
@@ -139,25 +136,11 @@ export const ThirdGrid = () => {
       );
     }
 
-    if (servicesCarouselForward.current) {
-      setServiceWidth(
-        servicesCarouselForward.current.scrollWidth -
-          servicesCarouselForward.current.offsetWidth
-      );
-    }
-
     const handleResize = () => {
       if (projectsCarousel.current) {
         setWidth(
           projectsCarousel.current.scrollWidth -
             projectsCarousel.current.offsetWidth
-        );
-      }
-
-      if (servicesCarouselForward.current) {
-        setServiceWidth(
-          servicesCarouselForward.current.scrollWidth -
-            servicesCarouselForward.current.offsetWidth
         );
       }
     };
