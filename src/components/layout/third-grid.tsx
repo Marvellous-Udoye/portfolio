@@ -91,14 +91,7 @@ const experiences = [
   },
 ];
 
-const projectsImages = [
-  "/genz.ad.jpg",
-  "/departmental-portal.jpg",
-  "/my-uni.jpg",
-  "/devlinks.png",
-  "/woodz.png",
-  "/book-tracker.png",
-];
+const galleryImages = ["/gallery-1.jpg", "/gallery-2.jpg", "/gallery-3.png"];
 
 export const ThirdGrid = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -126,21 +119,21 @@ export const ThirdGrid = () => {
   const extendedExperiences = [...experiences, ...experiences];
 
   const [width, setWidth] = useState<number>(0);
-  const projectsCarousel = useRef<HTMLDivElement>(null);
+  const galleryCarousel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (projectsCarousel.current) {
+    if (galleryCarousel.current) {
       setWidth(
-        projectsCarousel.current.scrollWidth -
-          projectsCarousel.current.offsetWidth
+        galleryCarousel.current.scrollWidth -
+          galleryCarousel.current.offsetWidth
       );
     }
 
     const handleResize = () => {
-      if (projectsCarousel.current) {
+      if (galleryCarousel.current) {
         setWidth(
-          projectsCarousel.current.scrollWidth -
-            projectsCarousel.current.offsetWidth
+          galleryCarousel.current.scrollWidth -
+            galleryCarousel.current.offsetWidth
         );
       }
     };
@@ -246,7 +239,7 @@ export const ThirdGrid = () => {
             ))}
           </div>
           <CardFooter className="px-0 overflow-hidden">
-            <motion.div ref={projectsCarousel} className="overflow-hidden">
+            <motion.div ref={galleryCarousel} className="overflow-hidden">
               <motion.div
                 className="flex"
                 drag="x"
@@ -257,14 +250,14 @@ export const ThirdGrid = () => {
                   transition: {
                     repeat: Infinity,
                     repeatType: "loop",
-                    duration: 20,
+                    duration: 30,
                     ease: "linear",
                   },
                 }}
               >
-                {projectsImages.map((projectImage, index) => (
+                {galleryImages.map((image, index) => (
                   <motion.div key={index} className="px-1 ">
-                    <ProjectCard image={projectImage} />
+                    <ProjectCard image={image} />
                   </motion.div>
                 ))}
               </motion.div>

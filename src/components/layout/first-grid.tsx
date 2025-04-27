@@ -91,8 +91,12 @@ const projectsImages = [
   "/departmental-portal.jpg",
   "/my-uni.jpg",
   "/devlinks.png",
+  "/mobtech.jpg",
+  "/ai-text-processor.jpg",
   "/woodz.png",
   "/book-tracker.png",
+  "/timbu.jpg",
+  "/archibuzz.jpg",
 ];
 
 export const FirstGrid = () => {
