@@ -11,24 +11,23 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Frontend engineer | Marvellous",
-    template: "%s | Frontend engineer | Marvellous Udoye",
+    default: "Frontend Developer | Marvellous",
+    template: "%s | Frontend Developer | Marvellous Udoye",
   },
   description:
-    "I'm Marvellous Udoye, a frontend developer passionate about building clean, responsive, and interactive web apps using React, Next.js, and TypeScript. This portfolio showcases my projects, skills, and experience as I grow in the world of web development.",
+    "I'm Marvellous Udoye, a frontend developer passionate about building clean, responsive, and interactive web apps. This portfolio showcases my projects, skills, and experience as I grow in the world of web development.",
   keywords: [
     "frontend developer",
-    "web developer",
-    "Next.js",
+    "ui/ux specialist",
+    "Next.js engineer",
     "React",
     "TypeScript",
     "JavaScript",
     "Tailwind CSS",
     "portfolio",
     "software development",
-    "student developer",
-    "developer projects",
-    "responsive web design",
+    "hng12 finalist",
+    "responsive design expert",
   ],
   authors: [{ name: "Marvellous Udoye" }],
   creator: "Marvellous Udoye",
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Marvellous Udoye | Frontend Developer",
     title: "Marvellous Udoye - Frontend Developer & Web Enthusiast",
     description:
-      "Explore my developer portfolio where I showcase modern, user-friendly projects built with React, Next.js, and Tailwind CSS. Follow my journey as a student and aspiring software developer.",
+      "Explore my developer portfolio where I showcase modern, user-friendly projects. I'm Marvellous Udoye, a frontend developer passionate about building clean, responsive, and interactive web apps.",
   },
   applicationName: "Marvellous Udoye's Portfolio",
   category: "Technology",
