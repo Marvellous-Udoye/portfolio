@@ -14,7 +14,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaGithub, FaJs, FaReact } from "react-icons/fa";
-import { SiFramer, SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import {
+  SiFramer,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 const projectsData = [
   {
@@ -25,13 +30,13 @@ const projectsData = [
     description:
       "A modern advertising platform targeting Gen Z audiences with interactive ad experiences and analytics.",
     techStack: [
-      <FaReact key="react" />,
       <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
       <SiFramer key="framer" />,
     ],
-    githubLink: "https://github.com/yourusername/genz-ad",
-    liveLink: "https://genz-ad.com",
+    githubLink: "https://github.com/hngprojects/AI-Ad-Gen-Frontend",
+    liveLink: "https://genz.ad/",
   },
   {
     id: 2,
@@ -41,12 +46,12 @@ const projectsData = [
     description:
       "A comprehensive portal for university departments to manage courses, students, and faculty resources.",
     techStack: [
-      <FaReact key="react" />,
-      <FaJs key="js" />,
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
     ],
-    githubLink: "https://github.com/yourusername/departmental-portal",
-    liveLink: "https://departmental-portal.edu",
+    githubLink: "https://github.com/Marvellous-Udoye/departmental-website",
+    liveLink: "https://departmental-portal-s.vercel.app/",
   },
   {
     id: 3,
@@ -56,12 +61,13 @@ const projectsData = [
     description:
       "A student-focused application for managing university life including schedules, assignments, and campus events.",
     techStack: [
-      <FaReact key="react" />,
       <SiNextdotjs key="next" />,
-      <FaJs key="js" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiFramer key="framer" />,
     ],
-    githubLink: "https://github.com/yourusername/my-uni",
-    liveLink: "https://my-uni.app",
+    githubLink: "https://github.com/Marvellous-Udoye/my-uni",
+    liveLink: "https://my-uni-rho.vercel.app/",
   },
   {
     id: 4,
@@ -75,11 +81,26 @@ const projectsData = [
       <SiNextdotjs key="next" />,
       <SiTailwindcss key="tailwind" />,
     ],
-    githubLink: "https://github.com/yourusername/devlinks",
-    liveLink: "https://devlinks.io",
+    githubLink: "https://github.com/Marvellous-Udoye/Devlinks-Full-stack-app",
+    liveLink: "https://devlinks-full-stack-app.vercel.app/",
   },
   {
     id: 5,
+    name: "Mobtech",
+    image: "/mobtech.jpg",
+    logo: "/mobtech.jpg",
+    description:
+      "Mobtech Synergies Ltd is a forward-thinking technology company on a mission to solve pressing challenges at both community and global scales.",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+    ],
+    githubLink: "https://github.com/Marvellous-Udoye/mobtech-website",
+    liveLink: "https://www.mobtechsynergies.com/",
+  },
+  {
+    id: 6,
     name: "Woodz",
     image: "/woodz.png",
     logo: "/woodz.png",
@@ -90,11 +111,27 @@ const projectsData = [
       <SiNextdotjs key="next" />,
       <SiFramer key="framer" />,
     ],
-    githubLink: "https://github.com/yourusername/woodz",
-    liveLink: "https://woodz.store",
+    githubLink: "https://github.com/Marvellous-Udoye/woodz",
+    liveLink: "https://marvellous-udoye.github.io/woodz/",
   },
   {
-    id: 6,
+    id: 7,
+    name: "AI Text Processor",
+    image: "/ai-text-processor.jpg",
+    logo: "/ai-text-processor.jpg",
+    description:
+      "Experience AI-powered text processing with smart summarization, detection and translation capabilities.",
+    techStack: [
+      <FaReact key="react" />,
+      <SiTailwindcss key="tailwind" />,
+      <FaJs key="js" />,
+    ],
+    githubLink:
+      "https://github.com/Marvellous-Udoye/hngx-stage3-ai-text-processor",
+    liveLink: "https://ai-text-processor-sdt.vercel.app/",
+  },
+  {
+    id: 8,
     name: "Book Tracker",
     image: "/book-tracker.png",
     logo: "/book-tracker.png",
@@ -105,8 +142,38 @@ const projectsData = [
       <SiTailwindcss key="tailwind" />,
       <FaJs key="js" />,
     ],
-    githubLink: "https://github.com/yourusername/book-tracker",
-    liveLink: "https://book-tracker.app",
+    githubLink: "https://github.com/Marvellous-Udoye/Book-Tracking-App",
+    liveLink: "https://book-tracking-app-nu.vercel.app/",
+  },
+  {
+    id: 9,
+    name: "Archibuzz",
+    image: "/archibuzz.jpg",
+    logo: "/archibuzz.jpg",
+    description:
+      "ARCHIBUZZ STUDIOS, where architecture and AI come together to innovate and inspire.",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+    ],
+    githubLink: "https://github.com/Marvellous-Udoye/archi-buzz",
+    liveLink: "https://archi-buzz.vercel.app/",
+  },
+  {
+    id: 10,
+    name: "Timbu Cloud Store",
+    image: "/timbu.jpg",
+    logo: "/timbu.jpg",
+    description:
+      "Get the Best Quality Product with Convenient Checkout Process, Quick Customer Service, Product Quality,Fast Delivery",
+    techStack: [
+      <FaReact key="react" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+    ],
+    githubLink: "https://github.com/Marvellous-Udoye/Timbu-cloud-store",
+    liveLink: "https://timbu-cloud-app.netlify.app//",
   },
 ];
 
@@ -303,7 +370,7 @@ export const ProjectsModal = ({ type = "projects" }) => {
         </div>
 
         <motion.div
-          className="relative w-full h-64 mb-4 overflow-hidden rounded-lg"
+          className="relative w-full h-36 md:h-64 mb-4 overflow-hidden rounded-lg"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, type: "spring" }}
