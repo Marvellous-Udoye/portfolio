@@ -37,7 +37,7 @@ import { MiniCard } from "../custom/mini-card";
 import { PaginatedStacks } from "../custom/paginated-stacks";
 import { ProjectCard } from "../custom/project-card";
 import { ProjectsModal } from "../custom/projects-modal";
-import { ProjectsIcon, ServicesIcon, StacksIcon } from "../icons/icons";
+import { ServicesIcon, StacksIcon, WorkIcon } from "../icons/icons";
 import { Card, CardContent } from "../ui/card";
 
 const stacks = [
@@ -154,7 +154,7 @@ export const FirstGrid = () => {
         <Header
           title="Projects"
           description="Works Gallery"
-          icon={<ProjectsIcon />}
+          icon={<WorkIcon />}
         />
         <CardContent className="px-0 overflow-hidden">
           <motion.div ref={projectsCarousel} className="overflow-hidden">

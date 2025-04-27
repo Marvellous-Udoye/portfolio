@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { Film, QuoteIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FaBuilding, FaHtml5 } from "react-icons/fa";
+import { FaBasketballBall, FaBuilding, FaCode } from "react-icons/fa";
+import { SiCrowdsource } from "react-icons/si";
 import { Header } from "../custom/card-header";
 import { ExperienceCard } from "../custom/experience-card";
 import { MiniCard } from "../custom/mini-card";
@@ -11,8 +13,8 @@ import {
   ContactIcon,
   EmailIcon,
   FollowIcon,
+  ProjectsIcon,
   WhatsappIcon,
-  WorkIcon,
 } from "../icons/icons";
 import {
   Card,
@@ -22,22 +24,40 @@ import {
   CardTitle,
 } from "../ui/card";
 
-const stacks = [
+const testimonials = [
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    text: "Marvellous delivered exceptional work that exceeded our expectations. His attention to detail is remarkable.",
+    author: "Tech Lead at HNG",
+    position: "Frontend Manager",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    text: "Working with Marvellous was a pleasure. He brings innovative solutions to complex problems.",
+    author: "Project Manager",
+    position: "Ghreatness Labs",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    text: "His code quality and UI implementations are top-notch. Would definitely work with him again.",
+    author: "Senior Developer",
+    position: "Mobtech Limited",
+  },
+];
+
+const hobbies = [
+  {
+    icon: <FaCode color="#CCCCCC" size={24} />,
+    text: "Programming",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <FaBasketballBall color="#CCCCCC" size={24} />,
+    text: "Playing Basketball",
+  },
+  {
+    icon: <Film color="#CCCCCC" size={24} />,
+    text: "Watching Anime",
+  },
+  {
+    icon: <SiCrowdsource color="#CCCCCC" size={24} />,
+    text: "Socailizing",
   },
 ];
 
@@ -82,56 +102,30 @@ export const ThirdGrid = () => {
     }
   }, []);
 
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   const extendedExperiences = [...experiences, ...experiences];
 
   return (
     <section className="grid grid-cols-1 gap-3">
       <div className="flex max-md:flex-col gap-3 w-full">
-        <Card className="p-5 flex flex-col gap-7.5 rounded-[20px] w-full">
-          <CardHeader className="flex flex-col items-center gap-[25px] text-center">
-            <div>
-              <ContactIcon />
-            </div>
-            <div className="flex flex-col gap-[5px]">
-              <CardTitle className="text-[#E6E6E6] font-semibold text-[20px] leading-6">
-                Let&apos;s Work Together
-              </CardTitle>
-              <CardDescription className="py-1.5 px-2.5 text-[#999] font-medium text-sm">
-                Let&apos;s Make Magic Happen!
-              </CardDescription>
-            </div>
-          </CardHeader>
-          <CardContent className="grid grid-cols-1 gap-3 px-0">
-            <Link
-              href={"/"}
-              className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
-            >
-              <div>
-                <EmailIcon />
-              </div>
-              <p>Email Me</p>
-            </Link>
-            <Link
-              href={"/"}
-              className="flex items-center gap-2.5 justify-center px-2.5 py-4 bg-[#1F1F1F] rounded-[10px] text-[#ccc] text-sm font-medium cursor-pointer w-full"
-            >
-              <div>
-                <WhatsappIcon />
-              </div>
-              <p>WhatsApp Me</p>
-            </Link>
-          </CardContent>
-        </Card>
-
-        <Card className="flex flex-col rounded-[20px] md:max-w-[245px] w-full gap-4">
+        <Card className="flex flex-col rounded-[20px]  w-full gap-4">
           <Header
             title="Experience"
             description="Work Highlights"
-            icon={<WorkIcon />}
+            icon={<ProjectsIcon />}
           />
           <div className="h-[1px] bg-[rgba(255,255,255,0.06)]"></div>
 
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-68 overflow-hidden">
             <motion.div
               ref={constraintsRef}
               className="absolute inset-0"
@@ -172,23 +166,69 @@ export const ThirdGrid = () => {
             </motion.div>
           </div>
         </Card>
+
+        <Card className="flex flex-col gap-4 rounded-[20px] md:max-w-[245px] w-full relative overflow-hidden">
+          <Header
+            title=" Feedbacks"
+            description="What People Say"
+            icon={<QuoteIcon size={20} color="#916CE7" />}
+          />
+          <div className="h-[1px] bg-[rgba(255,255,255,0.06)]"></div>
+          <CardContent className="px-5 h-40">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="h-full flex flex-col justify-between"
+              >
+                <p className="text-[#CCCCCC] text-sm italic">
+                  "{testimonials[current].text}"
+                </p>
+                <div className="mt-4">
+                  <p className="text-[#E6E6E6] font-medium">
+                    {testimonials[current].author}
+                  </p>
+                  <p className="text-[#999] text-xs">
+                    {testimonials[current].position}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </CardContent>
+
+          <div className="flex gap-1.5 justify-center">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrent(index)}
+                className={`h-1.5 rounded-full transition-all ${
+                  current === index ? "w-4 bg-purple-500" : "w-1.5 bg-[#333]"
+                }`}
+              />
+            ))}
+          </div>
+        </Card>
       </div>
 
       <div className="flex max-md:flex-col gap-3 w-full">
         <Card className="p-5 flex flex-col gap-7.5 rounded-[20px] md:max-w-[225px] w-full">
           <Header
-            title="Follow Me"
-            description="Online Presence"
+            title="Hobbies"
+            description="Things I Like To Do"
             icon={<FollowIcon />}
           />
           <CardContent className="grid grid-cols-1 gap-2 px-0">
-            {stacks.map((stack, index) => (
+            {hobbies.map((hobby, index) => (
               <div key={index}>
-                <MiniCard icon={stack.icon} text={stack.text} />
+                <MiniCard icon={hobby.icon} text={hobby.text} />
               </div>
             ))}
           </CardContent>
         </Card>
+
         <Card className="p-5 flex flex-col gap-7.5 rounded-[20px] w-full">
           <CardHeader className="flex flex-col items-center gap-[25px] text-center">
             <div>

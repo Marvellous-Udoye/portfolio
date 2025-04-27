@@ -3,15 +3,22 @@
 import { ProfileCard } from "@/components/custom/profile-card";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { FaGithub, FaHtml5, FaLinkedin } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLightbulb,
+  FaLinkedin,
+  FaPaintBrush,
+  FaPalette,
+  FaRegGem,
+} from "react-icons/fa";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { StatsCard } from "../custom/stats";
 import {
   DegreeIcon,
   FirstStatIcon,
-  FollowIcon,
   GlobeIcon,
+  InspirationIcon,
   LocationIcon,
   SecondStatIcon,
   ThirdStatIcon,
@@ -19,22 +26,22 @@ import {
 } from "../icons/icons";
 import { Card, CardContent } from "../ui/card";
 
-const clients = [
+const inspirations = [
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <FaPaintBrush color="#CCCCCC" size={24} />,
+    text: "Dribbble Designers",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <FaPalette color="#CCCCCC" size={24} />,
+    text: "Aesthetic Approach",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <FaLightbulb color="#CCCCCC" size={24} />,
+    text: "Everyday Creativity",
   },
   {
-    icon: <FaHtml5 color="#CCCCCC" size={24} />,
-    text: "HTML",
+    icon: <FaRegGem color="#CCCCCC" size={24} />,
+    text: "User-Centered Design",
   },
 ];
 
@@ -145,15 +152,12 @@ export const SecondGrid = () => {
 
       <Card className="relative px-3 pt-3 pb-10 flex flex-col gap-7.5 rounded-[20px]">
         <Header
-          title="My Clients"
-          description="Satisfied Partners"
-          icon={<FollowIcon />}
+          title="Inspirations"
+          description="Where I Get My Ideas"
+          icon={<InspirationIcon />}
         />
         <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
-          <motion.div
-            ref={clientsCarouselForward}
-            className="overflow-hidden"
-          >
+          <motion.div ref={clientsCarouselForward} className="overflow-hidden">
             <motion.div
               className="flex"
               initial={{ x: 0 }}
@@ -167,18 +171,15 @@ export const SecondGrid = () => {
                 },
               }}
             >
-              {clients.concat(clients).map((client, index) => (
+              {inspirations.concat(inspirations).map((inspiration, index) => (
                 <motion.div key={index} className="px-1 min-w-[180px]">
-                  <MiniCard icon={client.icon} text={client.text} />
+                  <MiniCard icon={inspiration.icon} text={inspiration.text} />
                 </motion.div>
               ))}
             </motion.div>
           </motion.div>
 
-          <motion.div
-            ref={clientsCarouselBackward}
-            className="overflow-hidden"
-          >
+          <motion.div ref={clientsCarouselBackward} className="overflow-hidden">
             <motion.div
               className="flex"
               initial={{ x: 0 }}
@@ -192,9 +193,9 @@ export const SecondGrid = () => {
                 },
               }}
             >
-              {clients.concat(clients).map((client, index) => (
+              {inspirations.concat(inspirations).map((inspiration, index) => (
                 <motion.div key={index} className="px-1 min-w-[180px]">
-                  <MiniCard icon={client.icon} text={client.text} />
+                  <MiniCard icon={inspiration.icon} text={inspiration.text} />
                 </motion.div>
               ))}
             </motion.div>
