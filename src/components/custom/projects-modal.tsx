@@ -13,7 +13,7 @@ import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaGithub, FaJs, FaReact } from "react-icons/fa";
+import { FaJs, FaReact } from "react-icons/fa";
 import {
   SiFramer,
   SiNextdotjs,
@@ -35,7 +35,6 @@ const projectsData = [
       <SiTailwindcss key="tailwind" />,
       <SiFramer key="framer" />,
     ],
-    githubLink: "https://github.com/hngprojects/AI-Ad-Gen-Frontend",
     liveLink: "https://genz.ad/",
   },
   {
@@ -50,7 +49,6 @@ const projectsData = [
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/departmental-website",
     liveLink: "https://departmental-portal-s.vercel.app/",
   },
   {
@@ -66,7 +64,6 @@ const projectsData = [
       <SiTailwindcss key="tailwind" />,
       <SiFramer key="framer" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/my-uni",
     liveLink: "https://my-uni-rho.vercel.app/",
   },
   {
@@ -81,7 +78,6 @@ const projectsData = [
       <SiNextdotjs key="next" />,
       <SiTailwindcss key="tailwind" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/Devlinks-Full-stack-app",
     liveLink: "https://devlinks-full-stack-app.vercel.app/",
   },
   {
@@ -96,7 +92,6 @@ const projectsData = [
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/mobtech-website",
     liveLink: "https://www.mobtechsynergies.com/",
   },
   {
@@ -111,8 +106,6 @@ const projectsData = [
       <SiTailwindcss key="tailwind" />,
       <FaJs key="js" />,
     ],
-    githubLink:
-      "https://github.com/Marvellous-Udoye/hngx-stage2-conference-ticket-generator",
     liveLink: "https://conference-ticket-generator-delta.vercel.app/",
   },
   {
@@ -127,7 +120,6 @@ const projectsData = [
       <SiNextdotjs key="next" />,
       <SiFramer key="framer" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/woodz",
     liveLink: "https://marvellous-udoye.github.io/woodz/",
   },
   {
@@ -142,8 +134,6 @@ const projectsData = [
       <SiTailwindcss key="tailwind" />,
       <FaJs key="js" />,
     ],
-    githubLink:
-      "https://github.com/Marvellous-Udoye/hngx-stage3-ai-text-processor",
     liveLink: "https://ai-text-processor-sdt.vercel.app/",
   },
   {
@@ -158,7 +148,6 @@ const projectsData = [
       <SiTailwindcss key="tailwind" />,
       <FaJs key="js" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/Book-Tracking-App",
     liveLink: "https://book-tracking-app-nu.vercel.app/",
   },
   {
@@ -173,7 +162,6 @@ const projectsData = [
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/archi-buzz",
     liveLink: "https://archi-buzz.vercel.app/",
   },
   {
@@ -188,7 +176,6 @@ const projectsData = [
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
     ],
-    githubLink: "https://github.com/Marvellous-Udoye/Timbu-cloud-store",
     liveLink: "https://timbu-cloud-app.netlify.app//",
   },
 ];
@@ -345,27 +332,10 @@ export const ProjectsModal = ({ type = "projects" }) => {
           </motion.div>
 
           <motion.div
-            className="flex gap-2"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="border-gray-700 hover:bg-gray-800 transition-all duration-300"
-            >
-              <Link
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1"
-              >
-                <FaGithub size={16} />
-                <span className="hidden md:inline-block">Code</span>
-              </Link>
-            </Button>
             <Button
               variant="default"
               size="sm"
