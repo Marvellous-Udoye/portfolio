@@ -20,11 +20,14 @@ import {
   HiOutlineUserGroup,
 } from "react-icons/hi";
 import {
+  SiCloudinary,
   SiDjango,
   SiFirebase,
   SiFramer,
+  SiGooglechrome,
   SiJest,
   SiNextdotjs,
+  SiPostman,
   SiRedux,
   SiSass,
   SiShadcnui,
@@ -61,6 +64,9 @@ const stacks = [
   { icon: <SiFirebase color="#CCCCCC" size={24} />, text: "Firebase" },
   { icon: <SiDjango color="#CCCCCC" size={24} />, text: "Django" },
   { icon: <FaPython color="#CCCCCC" size={24} />, text: "Python" },
+  { icon: <SiPostman color="#CCCCCC" size={24} />, text: "Postman" },
+  { icon: <SiGooglechrome color="#CCCCCC" size={24} />, text: "Chrome APIs" },
+  { icon: <SiCloudinary color="#CCCCCC" size={24} />, text: "Cloudinary" },
 ];
 
 const services = [
