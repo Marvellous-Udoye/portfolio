@@ -13,12 +13,30 @@ import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaJs, FaReact } from "react-icons/fa";
 import {
+  FaCss3Alt,
+  FaFigma,
+  FaHtml5,
+  FaJs,
+  FaPython,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiCloudinary,
+  SiDjango,
+  SiFirebase,
   SiFramer,
+  SiGooglechrome,
+  SiHeadlessui,
+  SiMui,
   SiNextdotjs,
+  SiPostman,
+  SiRedux,
+  SiShadcnui,
   SiTailwindcss,
   SiTypescript,
+  SiUikit,
+  SiVitest,
 } from "react-icons/si";
 
 const projectsData = [
@@ -26,14 +44,18 @@ const projectsData = [
     id: 1,
     name: "Genz.ad",
     image: "/genz.ad.jpg",
-    logo: "/genz.ad.jpg",
+    logo: "/genz.ad-logo.svg",
     description:
-      "A modern advertising platform targeting Gen Z audiences with interactive ad experiences and analytics.",
+      "AI generated ads that maximise engagement and revenue, Generate High-converting, Smarter Adverts in minutes with AI",
     techStack: [
       <SiNextdotjs key="next" />,
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
       <SiFramer key="framer" />,
+      <SiShadcnui key="shadcn" />,
+      <FaFigma key="figma" />,
+      <SiCloudinary key="cloudinary" />,
+      <SiPostman key="postman" />,
     ],
     liveLink: "https://genz.ad/",
   },
@@ -41,13 +63,17 @@ const projectsData = [
     id: 2,
     name: "Departmental Portal",
     image: "/departmental-portal.jpg",
-    logo: "/departmental-portal.jpg",
+    logo: "/departmental-portal-logo.jpg",
     description:
-      "A comprehensive portal for university departments to manage courses, students, and faculty resources.",
+      "Connect, collaborate, and thrive in your academic journey. Access course materials, track documents, receive important notifications, and stay updated with departmental activities - all in one seamless platform.",
     techStack: [
       <SiNextdotjs key="next" />,
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
+      <SiHeadlessui key="headlessui" />,
+      <SiUikit key="uikit" />,
+      <SiDjango key="django" />,
+      <FaPython key="python" />,
     ],
     liveLink: "https://departmental-portal-s.vercel.app/",
   },
@@ -55,9 +81,9 @@ const projectsData = [
     id: 3,
     name: "MyUni",
     image: "/my-uni.jpg",
-    logo: "/my-uni.jpg",
+    logo: "/my-uni-logo.jpg",
     description:
-      "A student-focused application for managing university life including schedules, assignments, and campus events.",
+      "Find the school that matches your goals, lifestyles, and dreams. Take the first step towards a university experience you'll thrive in.",
     techStack: [
       <SiNextdotjs key="next" />,
       <SiTypescript key="ts" />,
@@ -70,13 +96,15 @@ const projectsData = [
     id: 4,
     name: "DevLinks",
     image: "/devlinks.png",
-    logo: "/devlinks.png",
+    logo: "/devlinks-logo.svg",
     description:
-      "A centralized platform for developers to organize and share all their important links and resources.",
+      "DevLinks helps coders sync, sharing resources with just one link; organize connections and watch productivity climb to the brink.",
     techStack: [
-      <FaReact key="react" />,
       <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
+      <SiFirebase key="firebase" />,
+      <SiRedux key="redux" />,
     ],
     liveLink: "https://devlinks-full-stack-app.vercel.app/",
   },
@@ -84,13 +112,15 @@ const projectsData = [
     id: 5,
     name: "Mobtech",
     image: "/mobtech.jpg",
-    logo: "/mobtech.jpg",
+    logo: "/mobtech-logo.svg",
     description:
       "Mobtech Synergies Ltd is a forward-thinking technology company on a mission to solve pressing challenges at both community and global scales.",
     techStack: [
       <SiNextdotjs key="next" />,
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
+      <FaFigma key="figma" />,
+      <SiFirebase key="firebase" />,
     ],
     liveLink: "https://www.mobtechsynergies.com/",
   },
@@ -98,83 +128,123 @@ const projectsData = [
     id: 6,
     name: "Ticz",
     image: "/ticz.jpg",
-    logo: "/ticz.jpg",
+    logo: "/ticz-logo.svg",
     description:
-      "TIcket generator focusing on a seamless, login-free ticket reservation flow, allowing users to book event tickets quickly and efficiently.",
+      "Book events with Ticz, seamless and quick; no login needed, just grab your ticket with a click.",
     techStack: [
-      <FaReact key="react" />,
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
-      <FaJs key="js" />,
+      <SiCloudinary key="cloudinary" />,
     ],
     liveLink: "https://conference-ticket-generator-delta.vercel.app/",
   },
   {
     id: 7,
+    name: "E-library",
+    image: "/e-library.jpg",
+    logo: "/e-library-logo.jpg",
+    description:
+      "Access a comprehensive collection of academic resources, research papers, and digital content. Empowering education through technology.",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiHeadlessui key="headlessui" />,
+      <SiUikit key="uikit" />,
+      <SiDjango key="django" />,
+      <FaPython key="python" />,
+    ],
+    liveLink: "https://e-library-ws.vercel.app/",
+  },
+  {
+    id: 8,
     name: "Woodz",
     image: "/woodz.png",
-    logo: "/woodz.png",
+    logo: "/woodz-logo.svg",
     description:
-      "An e-commerce platform for artisanal wooden furniture with customizable options and 3D previews.",
+      "Explore Woodz for furniture that's good, artisanal craftsmanship carved from premium wood.",
     techStack: [
-      <FaReact key="react" />,
-      <SiNextdotjs key="next" />,
-      <SiFramer key="framer" />,
+      <FaHtml5 key="html" />,
+      <FaCss3Alt key="css" />,
+      <FaFigma key="figma" />,
     ],
     liveLink: "https://marvellous-udoye.github.io/woodz/",
   },
   {
-    id: 8,
+    id: 9,
     name: "AI Text Processor",
     image: "/ai-text-processor.jpg",
-    logo: "/ai-text-processor.jpg",
+    logo: "/ai-text-processor-logo.svg",
     description:
       "Experience AI-powered text processing with smart summarization, detection and translation capabilities.",
     techStack: [
-      <FaReact key="react" />,
+      <SiNextdotjs key="next" />,
       <SiTailwindcss key="tailwind" />,
-      <FaJs key="js" />,
+      <SiTypescript key="ts" />,
+      <SiHeadlessui key="headlessui" />,
+      <SiGooglechrome key="chrome" />,
     ],
     liveLink: "https://ai-text-processor-sdt.vercel.app/",
   },
   {
-    id: 9,
+    id: 10,
     name: "Book Tracker",
     image: "/book-tracker.png",
     logo: "/book-tracker.png",
     description:
-      "A personal library management system to track reading progress, take notes, and discover new books.",
-    techStack: [
-      <FaReact key="react" />,
-      <SiTailwindcss key="tailwind" />,
-      <FaJs key="js" />,
-    ],
-    liveLink: "https://book-tracking-app-nu.vercel.app/",
-  },
-  {
-    id: 10,
-    name: "Archibuzz",
-    image: "/archibuzz.jpg",
-    logo: "/archibuzz-logo.jpg",
-    description:
-      "ARCHIBUZZ STUDIOS, where architecture and AI come together to innovate and inspire.",
+      "Track Your Reading Progress. Organize, manage, and track the books you're reading in one simple app.",
     techStack: [
       <SiNextdotjs key="next" />,
       <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
+      <SiRedux key="redux" />,
+    ],
+    liveLink: "https://book-tracking-app-nu.vercel.app/",
+  },
+  {
+    id: 11,
+    name: "Color Game",
+    image: "/color.jpg",
+    logo: "/color.jpg",
+    description:
+      "The Color Game brings fun and fame, test your color perception in this addictive brain game.",
+    techStack: [
+      <FaReact key="react" />,
+      <FaJs key="js" />,
+      <FaCss3Alt key="css" />,
+    ],
+    liveLink: "https://timbu-cloud-app.netlify.app//",
+  },
+  {
+    id: 12,
+    name: "Archibuzz",
+    image: "/archibuzz.jpg",
+    logo: "/archibuzz-logo.jpg",
+    description:
+      "Archibuzz is where designs come alive with a buzz, blending AI and architecture to innovate and inspire. ",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiMui key="magicui" />,
+      <SiFramer key="framer" />,
     ],
     liveLink: "https://archi-buzz.vercel.app/",
   },
   {
-    id: 11,
+    id: 13,
     name: "Timbu Cloud Store",
     image: "/timbu.jpg",
-    logo: "/timbu.jpg",
+    logo: "/timbu-logo.svg",
     description:
-      "Get the Best Quality Product with Convenient Checkout Process, Quick Customer Service, Product Quality,Fast Delivery",
+      "Shop at Timbu, deliveries come to you; quality products and service that's always true.",
     techStack: [
       <FaReact key="react" />,
-      <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
+      <FaJs key="js" />,
+      <SiPostman key="postman" />,
+      <SiVitest key="jest" />,
     ],
     liveLink: "https://timbu-cloud-app.netlify.app//",
   },
@@ -313,14 +383,14 @@ export const ProjectsModal = ({ type = "projects" }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
+            <div className="w-10 h-10 p-1.5 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
               {project.logo ? (
                 <Image
                   src={project.logo}
                   alt={`${project.name} logo`}
                   width={40}
                   height={40}
-                  className="object-cover"
+                  className="object-cover rounded-full"
                 />
               ) : (
                 <span className="text-xl font-bold text-violet-400">
