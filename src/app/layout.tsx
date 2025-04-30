@@ -63,6 +63,7 @@ export default function RootLayout({
           httpEquiv="Cache-Control"
           content="no-store, no-cache, must-revalidate"
         />
+        <link rel="icon" href="/logo.png" type="image/png" />
       </head>
       <body className="font-jakarta antialiased">{children}</body>
     </html>
