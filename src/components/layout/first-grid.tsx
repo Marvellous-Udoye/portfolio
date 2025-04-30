@@ -37,9 +37,9 @@ import {
 } from "react-icons/si";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
+import { Modal } from "../custom/modal";
 import { PaginatedStacks } from "../custom/paginated-stacks";
 import { ProjectCard } from "../custom/project-card";
-import { ProjectsModal } from "../custom/projects-modal";
 import { ServicesIcon, StacksIcon, WorkIcon } from "../icons/icons";
 import { Card, CardContent } from "../ui/card";
 
@@ -102,7 +102,7 @@ const projectsImages = [
   "/e-library.jpg",
   "/ai-text-processor.jpg",
   "/woodz.png",
-  "/book-tracker.png",
+  "/book-tracker.jpg",
   "/color.jpg",
   "/timbu.jpg",
   "/archibuzz.jpg",
@@ -195,7 +195,7 @@ export const FirstGrid = () => {
           </motion.div>
         </CardContent>
         <div className="absolute bottom-4.5 left-1/4 max-xl:left-1/2 max-xl:-translate-x-1/2">
-          <ProjectsModal type="projects" />
+          <Modal type="projects" />
         </div>
       </Card>
 
@@ -254,7 +254,7 @@ export const FirstGrid = () => {
           </motion.div>
         </CardContent>
         <div className="absolute bottom-4.5 left-[20%] max-xl:left-1/2 max-xl:-translate-x-1/2">
-          <ProjectsModal type="services" />
+          <Modal type="services" />
         </div>
       </Card>
     </section>

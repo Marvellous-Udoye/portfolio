@@ -13,301 +13,29 @@ import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  FaCss3Alt,
-  FaFigma,
-  FaHtml5,
-  FaJs,
-  FaPython,
-  FaReact,
-} from "react-icons/fa";
-import {
-  SiCloudinary,
-  SiDjango,
-  SiFirebase,
-  SiFramer,
-  SiGooglechrome,
-  SiHeadlessui,
-  SiMui,
-  SiNextdotjs,
-  SiPostman,
-  SiRedux,
-  SiShadcnui,
-  SiTailwindcss,
-  SiTypescript,
-  SiUikit,
-  SiVitest,
-} from "react-icons/si";
 
-const projectsData = [
-  {
-    id: 1,
-    name: "Genz.ad",
-    image: "/genz.ad.jpg",
-    logo: "/genz.ad-logo.svg",
-    description:
-      "AI generated ads that maximise engagement and revenue, Generate High-converting, Smarter Adverts in minutes with AI",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiFramer key="framer" />,
-      <SiShadcnui key="shadcn" />,
-      <FaFigma key="figma" />,
-      <SiCloudinary key="cloudinary" />,
-      <SiPostman key="postman" />,
-    ],
-    liveLink: "https://genz.ad/",
-  },
-  {
-    id: 2,
-    name: "Departmental Portal",
-    image: "/departmental-portal.jpg",
-    logo: "/departmental-portal-logo.jpg",
-    description:
-      "Connect, collaborate, and thrive in your academic journey. Access course materials, track documents, receive important notifications, and stay updated with departmental activities - all in one seamless platform.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiHeadlessui key="headlessui" />,
-      <SiUikit key="uikit" />,
-      <SiDjango key="django" />,
-      <FaPython key="python" />,
-    ],
-    liveLink: "https://departmental-portal-s.vercel.app/",
-  },
-  {
-    id: 3,
-    name: "MyUni",
-    image: "/my-uni.jpg",
-    logo: "/my-uni-logo.jpg",
-    description:
-      "Find the school that matches your goals, lifestyles, and dreams. Take the first step towards a university experience you'll thrive in.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiFramer key="framer" />,
-    ],
-    liveLink: "https://my-uni-rho.vercel.app/",
-  },
-  {
-    id: 4,
-    name: "DevLinks",
-    image: "/devlinks.png",
-    logo: "/devlinks-logo.svg",
-    description:
-      "DevLinks helps coders sync, sharing resources with just one link; organize connections and watch productivity climb to the brink.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiFirebase key="firebase" />,
-      <SiRedux key="redux" />,
-    ],
-    liveLink: "https://devlinks-full-stack-app.vercel.app/",
-  },
-  {
-    id: 5,
-    name: "Mobtech",
-    image: "/mobtech.jpg",
-    logo: "/mobtech-logo.jpeg",
-    description:
-      "Mobtech Synergies Ltd is a forward-thinking technology company on a mission to solve pressing challenges at both community and global scales.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <FaFigma key="figma" />,
-      <SiFirebase key="firebase" />,
-    ],
-    liveLink: "https://www.mobtechsynergies.com/",
-  },
-  {
-    id: 6,
-    name: "Ticz",
-    image: "/ticz.jpg",
-    logo: "/ticz-logo.svg",
-    description:
-      "Book events with Ticz, seamless and quick; no login needed, just grab your ticket with a click.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiCloudinary key="cloudinary" />,
-    ],
-    liveLink: "https://conference-ticket-generator-delta.vercel.app/",
-  },
-  {
-    id: 7,
-    name: "E-library",
-    image: "/e-library.jpg",
-    logo: "/e-library-logo.jpg",
-    description:
-      "Access a comprehensive collection of academic resources, research papers, and digital content. Empowering education through technology.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiHeadlessui key="headlessui" />,
-      <SiUikit key="uikit" />,
-      <SiDjango key="django" />,
-      <FaPython key="python" />,
-    ],
-    liveLink: "https://e-library-ws.vercel.app/",
-  },
-  {
-    id: 8,
-    name: "Woodz",
-    image: "/woodz.png",
-    logo: "/woodz-logo.svg",
-    description:
-      "Explore Woodz for furniture that's good, artisanal craftsmanship carved from premium wood.",
-    techStack: [
-      <FaHtml5 key="html" />,
-      <FaCss3Alt key="css" />,
-      <FaFigma key="figma" />,
-    ],
-    liveLink: "https://marvellous-udoye.github.io/woodz/",
-  },
-  {
-    id: 9,
-    name: "AI Text Processor",
-    image: "/ai-text-processor.jpg",
-    logo: "/ai-text-processor-logo.svg",
-    description:
-      "Experience AI-powered text processing with smart summarization, detection and translation capabilities.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiTypescript key="ts" />,
-      <SiHeadlessui key="headlessui" />,
-      <SiGooglechrome key="chrome" />,
-    ],
-    liveLink: "https://ai-text-processor-sdt.vercel.app/",
-  },
-  {
-    id: 10,
-    name: "Book Tracker",
-    image: "/book-tracker.jpg",
-    logo: "/book-tracker.jpg",
-    description:
-      "Track Your Reading Progress. Organize, manage, and track the books you're reading in one simple app.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiRedux key="redux" />,
-    ],
-    liveLink: "https://book-tracking-app-nu.vercel.app/",
-  },
-  {
-    id: 11,
-    name: "Color Game",
-    image: "/color.jpg",
-    logo: "/color.jpg",
-    description:
-      "The Color Game brings fun and fame, test your color perception in this addictive brain game.",
-    techStack: [
-      <FaReact key="react" />,
-      <FaJs key="js" />,
-      <FaCss3Alt key="css" />,
-    ],
-    liveLink: "https://timbu-cloud-app.netlify.app//",
-  },
-  {
-    id: 12,
-    name: "Archibuzz",
-    image: "/archibuzz.jpg",
-    logo: "/archibuzz-logo.jpg",
-    description:
-      "Archibuzz is where designs come alive with a buzz, blending AI and architecture to innovate and inspire. ",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiMui key="magicui" />,
-      <SiFramer key="framer" />,
-    ],
-    liveLink: "https://archi-buzz.vercel.app/",
-  },
-  {
-    id: 13,
-    name: "Timbu Cloud Store",
-    image: "/timbu.jpg",
-    logo: "/timbu-logo.svg",
-    description:
-      "Shop at Timbu, deliveries come to you; quality products and service that's always true.",
-    techStack: [
-      <FaReact key="react" />,
-      <SiTailwindcss key="tailwind" />,
-      <FaJs key="js" />,
-      <SiPostman key="postman" />,
-      <SiVitest key="jest" />,
-    ],
-    liveLink: "https://timbu-cloud-app.netlify.app//",
-  },
-];
+import { experienceData } from "../../data/experience";
+import { projectsData } from "../../data/projects";
+import { servicesData } from "../../data/services";
 
-const servicesData = [
-  {
-    id: 1,
-    name: "Problem Solving",
-    description:
-      "Expert problem-solving solutions for complex technical challenges across web and mobile platforms.",
-    icon: "HiOutlineLightBulb",
-  },
-  {
-    id: 2,
-    name: "Team Leadership",
-    description:
-      "Effective team management and leadership to drive project success and team productivity.",
-    icon: "HiOutlineUserGroup",
-  },
-  {
-    id: 3,
-    name: "Communication",
-    description:
-      "Clear, concise communication to ensure all stakeholders remain informed and aligned.",
-    icon: "HiOutlineChatAlt",
-  },
-  {
-    id: 4,
-    name: "Time Management",
-    description:
-      "Strategic time planning and resource allocation to ensure project delivery within deadlines.",
-    icon: "HiOutlineClock",
-  },
-  {
-    id: 5,
-    name: "DevOps & Deployment",
-    description:
-      "Comprehensive DevOps solutions including CI/CD pipelines and cloud deployment.",
-    icon: "FaServer",
-  },
-  {
-    id: 6,
-    name: "Backend Development",
-    description:
-      "Robust backend services including API integration and database management.",
-    icon: "FaPython",
-  },
-];
-
-export const ProjectsModal = ({ type = "projects" }) => {
+export const Modal = ({ type = "projects" }) => {
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const data = type === "projects" ? projectsData : servicesData;
+  const data =
+    type === "projects"
+      ? projectsData
+      : type === "services"
+      ? servicesData
+      : experienceData;
 
-  const nextProject = () => {
+  const nextItem = () => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % data.length);
   };
 
-  const prevProject = () => {
+  const prevItem = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
   };
@@ -462,28 +190,14 @@ export const ProjectsModal = ({ type = "projects" }) => {
           {project.description}
         </motion.p>
 
-        <div className="flex items-center gap-3">
-          {project.techStack.map((stack, index) => (
-            <motion.div
-              key={index}
-              className="mt-4 mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              {stack}
-            </motion.div>
-          ))}
-        </div>
-
         <motion.div
-          className="flex gap-2 mb-4"
+          className="flex gap-2 mb-4 mt-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
           <span className="text-sm text-gray-400">Tech Stack:</span>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             {project.techStack.map((icon, i) => (
               <motion.span
                 key={i}
@@ -583,11 +297,158 @@ export const ProjectsModal = ({ type = "projects" }) => {
     );
   };
 
+  const renderExperienceContent = () => {
+    const experience = experienceData[currentIndex];
+
+    return (
+      <motion.div
+        key={`experience-${currentIndex}`}
+        custom={direction}
+        variants={contentVariants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        className="flex flex-col"
+      >
+        <div className="flex items-center justify-between mb-4">
+          <motion.div
+            className="flex items-center gap-3"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="w-12 h-12 p-1.5 rounded-md overflow-hidden bg-[#282828] flex items-center justify-center">
+              <Image
+                src={experience.image}
+                alt={`${experience.company} logo`}
+                width={48}
+                height={48}
+                className="object-cover rounded-md"
+              />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-[#916CE7]">
+                {experience.company}
+              </h3>
+              <p className="text-sm text-gray-300">{experience.position}</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <span className="px-3 py-1 bg-gray-800 rounded-full text-xs text-gray-300">
+              {experience.date}
+            </span>
+          </motion.div>
+        </div>
+
+        <motion.div
+          className="mb-6 p-4 bg-[#191919] rounded-lg border border-gray-800"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+        >
+          <h4 className="text-sm font-medium text-gray-300 mb-2">About Role</h4>
+          <p className="text-gray-400 text-sm">{experience.description}</p>
+        </motion.div>
+
+        <motion.div
+          className="mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <h4 className="text-sm font-medium text-gray-300 mb-3">
+            Key Responsibilities
+          </h4>
+          <div className="space-y-2">
+            {experience.achievements.map((achievement, index) => (
+              <motion.div
+                key={index}
+                className="flex items-start gap-2"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 + index * 0.1 }}
+              >
+                <div className="w-2 h-2 mt-1.5 rounded-full bg-violet-500"></div>
+                <p className="text-sm text-gray-400">{achievement}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col gap-3 mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <h4 className="text-sm font-medium text-gray-300">Skills Used</h4>
+          <div className="flex flex-wrap gap-2">
+            {experience.skills.map((skill, index) => (
+              <motion.span
+                key={index}
+                className="px-3 py-1 bg-violet-900/30 rounded-full text-xs text-violet-300 border border-violet-700/30"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
+              >
+                {skill}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  };
+
+  const renderContent = () => {
+    switch (type) {
+      case "projects":
+        return renderProjectContent();
+      case "services":
+        return renderServiceContent();
+      case "experiences":
+        return renderExperienceContent();
+      default:
+        return renderProjectContent();
+    }
+  };
+
+  const getTitle = () => {
+    switch (type) {
+      case "projects":
+        return "My Projects";
+      case "services":
+        return "My Services";
+      case "experiences":
+        return "My Work Experience";
+      default:
+        return "My Content";
+    }
+  };
+
+  const getButtonText = () => {
+    switch (type) {
+      case "projects":
+        return "View Works";
+      case "services":
+        return "View All Services";
+      case "experiences":
+        return "View Experiences";
+      default:
+        return "View Content";
+    }
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="py-3 px-7 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-violet-700/20">
-          {type === "projects" ? "View Works" : "View All Services"}
+        <Button className="py-3 px-5 bg-[#916CE7] rounded-[12px] border border-[#101010] text-sm font-medium min-h-[45px] hover:bg-[#916CE7] hover:border-[#916CE7] cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-violet-700/20">
+          {getButtonText()}
         </Button>
       </DialogTrigger>
 
@@ -608,7 +469,7 @@ export const ProjectsModal = ({ type = "projects" }) => {
               >
                 <DialogHeader className="p-4">
                   <DialogTitle className="text-2xl font-bold text-center text-gradient bg-gradient-to-r from-violet-400 to-indigo-300 bg-clip-text text-transparent">
-                    {type === "projects" ? "My Projects" : "My Services"}
+                    {getTitle()}
                   </DialogTitle>
                 </DialogHeader>
               </motion.div>
@@ -619,13 +480,11 @@ export const ProjectsModal = ({ type = "projects" }) => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="relative mt-16 w-full bg-[#101010] border-l border-r border-[rgba(255,255,255,0.05)] z-0 px-6 pt-4"
-                style={{ height: "calc(100% - 5rem)" }}
+                className="relative mt-16 w-full bg-[#101010] border-l border-r border-[rgba(255,255,255,0.05)] z-0 px-6 pt-4 pb-16"
+                style={{ minHeight: "400px" }}
               >
                 <AnimatePresence custom={direction} mode="wait">
-                  {type === "projects"
-                    ? renderProjectContent()
-                    : renderServiceContent()}
+                  {renderContent()}
                 </AnimatePresence>
               </motion.div>
 
@@ -640,7 +499,7 @@ export const ProjectsModal = ({ type = "projects" }) => {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={prevProject}
+                  onClick={prevItem}
                   className="border-gray-700 hover:bg-gray-800 transition-all duration-300 hover:border-violet-500"
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -663,7 +522,7 @@ export const ProjectsModal = ({ type = "projects" }) => {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={nextProject}
+                  onClick={nextItem}
                   className="border-gray-700 hover:bg-gray-800 transition-all duration-300 hover:border-violet-500"
                 >
                   <ChevronRight className="h-4 w-4" />

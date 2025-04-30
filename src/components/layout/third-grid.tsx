@@ -9,6 +9,7 @@ import { SiCrowdsource } from "react-icons/si";
 import { Header } from "../custom/card-header";
 import { ExperienceCard } from "../custom/experience-card";
 import { MiniCard } from "../custom/mini-card";
+import { Modal } from "../custom/modal";
 import { ProjectCard } from "../custom/project-card";
 import {
   ContactIcon,
@@ -166,9 +167,13 @@ export const ThirdGrid = () => {
               className="absolute inset-0"
               style={{ overflow: "hidden" }}
             >
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+                <Modal type="experiences" />
+              </div>
+
               <motion.div
                 ref={scrollRef}
-                className="px-5 space-y-3"
+                className="px-5 space-y-3 pt-16"
                 drag="y"
                 dragConstraints={constraintsRef}
                 onDragStart={() => setIsDragging(true)}
