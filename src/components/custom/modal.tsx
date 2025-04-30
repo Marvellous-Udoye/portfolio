@@ -191,12 +191,11 @@ export const Modal = ({ type = "projects" }) => {
         </motion.p>
 
         <motion.div
-          className="flex gap-2 mb-4 mt-4"
+          className="my-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <span className="text-sm text-gray-400">Tech Stack:</span>
           <div className="flex flex-wrap gap-3">
             {project.techStack.map((icon, i) => (
               <motion.span
@@ -226,7 +225,6 @@ export const Modal = ({ type = "projects" }) => {
         initial="enter"
         animate="center"
         exit="exit"
-        className="flex flex-col"
       >
         <motion.div
           className="flex items-center gap-3 mb-6"
@@ -250,7 +248,7 @@ export const Modal = ({ type = "projects" }) => {
         </motion.div>
 
         <motion.div
-          className="relative p-6 bg-gray-900/50 rounded-lg border border-gray-800 mb-6"
+          className="relative p-6 bg-gray-900/50 rounded-lg border border-gray-800"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -273,26 +271,6 @@ export const Modal = ({ type = "projects" }) => {
             transition={{ delay: 0.6, duration: 0.8 }}
           />
         </motion.div>
-
-        <motion.div
-          className="grid grid-cols-3 gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-        >
-          {[1, 2, 3].map((i) => (
-            <motion.div
-              key={i}
-              className="h-12 bg-gray-800/50 rounded-md flex items-center justify-center border border-gray-700/50"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 + i * 0.1 }}
-            >
-              <span className="w-2 h-2 bg-violet-500 rounded-full mr-2"></span>
-              <span className="text-xs text-gray-400">Feature {i}</span>
-            </motion.div>
-          ))}
-        </motion.div>
       </motion.div>
     );
   };
@@ -310,7 +288,7 @@ export const Modal = ({ type = "projects" }) => {
         exit="exit"
         className="flex flex-col"
       >
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex max-md:flex-col md:items-center gap-3 justify-between mb-4">
           <motion.div
             className="flex items-center gap-3"
             initial={{ opacity: 0, x: -20 }}
@@ -327,7 +305,7 @@ export const Modal = ({ type = "projects" }) => {
               />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-[#916CE7]">
+              <h3 className="text-lg md:text-xl font-bold text-[#916CE7]">
                 {experience.company}
               </h3>
               <p className="text-sm text-gray-300">{experience.position}</p>
@@ -376,28 +354,6 @@ export const Modal = ({ type = "projects" }) => {
                 <div className="w-2 h-2 mt-1.5 rounded-full bg-violet-500"></div>
                 <p className="text-sm text-gray-400">{achievement}</p>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="flex flex-col gap-3 mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-        >
-          <h4 className="text-sm font-medium text-gray-300">Skills Used</h4>
-          <div className="flex flex-wrap gap-2">
-            {experience.skills.map((skill, index) => (
-              <motion.span
-                key={index}
-                className="px-3 py-1 bg-violet-900/30 rounded-full text-xs text-violet-300 border border-violet-700/30"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8 + index * 0.1, type: "spring" }}
-              >
-                {skill}
-              </motion.span>
             ))}
           </div>
         </motion.div>
