@@ -30,17 +30,17 @@ import {
 const testimonials = [
   {
     text: "Marvellous delivered exceptional work that exceeded our expectations. His attention to detail is remarkable.",
-    author: "Tech Lead at HNG",
-    position: "Frontend Manager",
+    author: "Frontend Developer",
+    position: "HNG",
   },
   {
     text: "Working with Marvellous was a pleasure. He brings innovative solutions to complex problems.",
-    author: "Project Manager",
+    author: "Backend Developer",
     position: "Ghreatness Labs",
   },
   {
     text: "His code quality and UI implementations are top-notch. Would definitely work with him again.",
-    author: "Senior Developer",
+    author: "Fullstack Developer",
     position: "Mobtech Limited",
   },
 ];
