@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Film, QuoteIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FaBasketballBall, FaBuilding, FaCode } from "react-icons/fa";
+import { FaBasketballBall, FaCode } from "react-icons/fa";
 import { SiCrowdsource } from "react-icons/si";
 import { Header } from "../custom/card-header";
 import { ExperienceCard } from "../custom/experience-card";
@@ -67,27 +67,27 @@ const experiences = [
   {
     company: "HNG Tech",
     date: "02/25 — 04/25",
-    icon: <FaBuilding color="#CCCCCC" size={20} />,
+    image: "/hng-logo.jpeg",
   },
   {
     company: "Ghreatness Labs",
     date: "11/24 — 04/25",
-    icon: <FaBuilding color="#CCCCCC" size={20} />,
+    image: "/ghreatness-labs-logo.png",
   },
   {
     company: "Mobtech Limited",
     date: "10/24 — 04/25",
-    icon: <FaBuilding color="#CCCCCC" size={20} />,
+    image: "/mobtech-logo.jpeg",
   },
   {
     company: "Archibuzz",
     date: "08/24 — 10/24",
-    icon: <FaBuilding color="#CCCCCC" size={20} />,
+    image: "/archibuzz-logo.jpg",
   },
   {
     company: "HNG Tech",
     date: "06/24",
-    icon: <FaBuilding color="#CCCCCC" size={20} />,
+    image: "/hng-logo.jpeg",
   },
 ];
 
@@ -194,7 +194,7 @@ export const ThirdGrid = () => {
                     key={index}
                     company={experience.company}
                     date={experience.date}
-                    icon={experience.icon}
+                    image={experience.image}
                   />
                 ))}
               </motion.div>

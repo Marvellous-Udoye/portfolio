@@ -98,9 +98,12 @@ const projectsImages = [
   "/my-uni.jpg",
   "/devlinks.png",
   "/mobtech.jpg",
+  "/ticz.jpg",
+  "/e-library.jpg",
   "/ai-text-processor.jpg",
   "/woodz.png",
   "/book-tracker.png",
+  "/color.jpg",
   "/timbu.jpg",
   "/archibuzz.jpg",
 ];

@@ -112,7 +112,7 @@ const projectsData = [
     id: 5,
     name: "Mobtech",
     image: "/mobtech.jpg",
-    logo: "/mobtech-logo.svg",
+    logo: "/mobtech-logo.jpeg",
     description:
       "Mobtech Synergies Ltd is a forward-thinking technology company on a mission to solve pressing challenges at both community and global scales.",
     techStack: [
@@ -190,8 +190,8 @@ const projectsData = [
   {
     id: 10,
     name: "Book Tracker",
-    image: "/book-tracker.png",
-    logo: "/book-tracker.png",
+    image: "/book-tracker.jpg",
+    logo: "/book-tracker.jpg",
     description:
       "Track Your Reading Progress. Organize, manage, and track the books you're reading in one simple app.",
     techStack: [
@@ -283,8 +283,15 @@ const servicesData = [
     id: 5,
     name: "DevOps & Deployment",
     description:
-      "Comprehensive DevOps solutions including CI/CD pipelines, containerization, and cloud deployment.",
+      "Comprehensive DevOps solutions including CI/CD pipelines and cloud deployment.",
     icon: "FaServer",
+  },
+  {
+    id: 6,
+    name: "Backend Development",
+    description:
+      "Robust backend services including API integration and database management.",
+    icon: "FaPython",
   },
 ];
 
