@@ -156,8 +156,11 @@ export const SecondGrid = () => {
           description="Where I Get My Ideas"
           icon={<InspirationIcon />}
         />
-        <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
-          <motion.div ref={clientsCarouselForward} className="overflow-hidden">
+        <CardContent className="px-0 overflow-hidden flex flex-col gap-2 relative">
+          <motion.div
+            ref={clientsCarouselForward}
+            className="overflow-hidden relative"
+          >
             <motion.div
               className="flex"
               initial={{ x: 0 }}
@@ -177,9 +180,31 @@ export const SecondGrid = () => {
                 </motion.div>
               ))}
             </motion.div>
+
+            <div
+              className="absolute left-0 top-0 bottom-0 z-10"
+              style={{
+                width: "51px",
+                height: "100%",
+                background:
+                  "linear-gradient(270deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
+            <div
+              className="absolute right-0 top-0 bottom-0 z-10"
+              style={{
+                width: "51px",
+                height: "100%",
+                background:
+                  "linear-gradient(90deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
           </motion.div>
 
-          <motion.div ref={clientsCarouselBackward} className="overflow-hidden">
+          <motion.div
+            ref={clientsCarouselBackward}
+            className="overflow-hidden relative"
+          >
             <motion.div
               className="flex"
               initial={{ x: 0 }}
@@ -199,6 +224,25 @@ export const SecondGrid = () => {
                 </motion.div>
               ))}
             </motion.div>
+
+            <div
+              className="absolute left-0 top-0 bottom-0 z-10"
+              style={{
+                width: "51px",
+                height: "100%",
+                background:
+                  "linear-gradient(270deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
+            <div
+              className="absolute right-0 top-0 bottom-0 z-10"
+              style={{
+                width: "51px",
+                height: "100%",
+                background:
+                  "linear-gradient(90deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
           </motion.div>
         </CardContent>
       </Card>

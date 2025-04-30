@@ -170,7 +170,10 @@ export const FirstGrid = () => {
           icon={<WorkIcon />}
         />
         <CardContent className="px-0 overflow-hidden">
-          <motion.div ref={projectsCarousel} className="overflow-hidden">
+          <motion.div
+            ref={projectsCarousel}
+            className="overflow-hidden relative"
+          >
             <motion.div
               className="flex"
               drag="x"
@@ -192,6 +195,15 @@ export const FirstGrid = () => {
                 </motion.div>
               ))}
             </motion.div>
+            <div
+              className="absolute right-0 bottom-0 z-0"
+              style={{
+                width: "100%",
+                height: "50%",
+                background:
+                  "linear-gradient(180deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
           </motion.div>
         </CardContent>
         <div className="absolute bottom-4.5 left-1/4 max-xl:left-1/2 max-xl:-translate-x-1/2">
@@ -206,7 +218,10 @@ export const FirstGrid = () => {
           icon={<ServicesIcon />}
         />
         <CardContent className="px-0 overflow-hidden flex flex-col gap-2">
-          <motion.div ref={servicesCarouselForward} className="overflow-hidden">
+          <motion.div
+            ref={servicesCarouselForward}
+            className="overflow-hidden relative"
+          >
             <motion.div
               className="flex"
               initial={{ x: 0 }}
@@ -226,11 +241,29 @@ export const FirstGrid = () => {
                 </motion.div>
               ))}
             </motion.div>
+            <div
+              className="absolute left-0 top-0 bottom-0 z-10"
+              style={{
+                width: "30px",
+                height: "100%",
+                background:
+                  "linear-gradient(270deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
+            <div
+              className="absolute right-0 top-0 bottom-0 z-10"
+              style={{
+                width: "30px",
+                height: "100%",
+                background:
+                  "linear-gradient(90deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
           </motion.div>
 
           <motion.div
             ref={servicesCarouselBackward}
-            className="overflow-hidden"
+            className="overflow-hidden relative"
           >
             <motion.div
               className="flex"
@@ -251,6 +284,24 @@ export const FirstGrid = () => {
                 </motion.div>
               ))}
             </motion.div>
+            <div
+              className="absolute left-0 top-0 bottom-0 z-10"
+              style={{
+                width: "30px",
+                height: "100%",
+                background:
+                  "linear-gradient(270deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
+            <div
+              className="absolute right-0 top-0 bottom-0 z-10"
+              style={{
+                width: "30px",
+                height: "100%",
+                background:
+                  "linear-gradient(90deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+              }}
+            />
           </motion.div>
         </CardContent>
         <div className="absolute bottom-4.5 left-[20%] max-xl:left-1/2 max-xl:-translate-x-1/2">

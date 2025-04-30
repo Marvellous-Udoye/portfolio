@@ -203,6 +203,15 @@ export const ThirdGrid = () => {
                   />
                 ))}
               </motion.div>
+              <div
+                className="absolute right-0 top-0 z-0"
+                style={{
+                  width: "100%",
+                  height: "40%",
+                  background:
+                    "linear-gradient(0deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+                }}
+              />
             </motion.div>
           </div>
         </Card>
@@ -251,7 +260,10 @@ export const ThirdGrid = () => {
             ))}
           </div>
           <CardFooter className="px-0 overflow-hidden">
-            <motion.div ref={galleryCarousel} className="overflow-hidden">
+            <motion.div
+              ref={galleryCarousel}
+              className="overflow-hidden relative"
+            >
               <motion.div
                 className="flex"
                 drag="x"
@@ -268,11 +280,30 @@ export const ThirdGrid = () => {
                 }}
               >
                 {galleryImages.map((image, index) => (
-                  <motion.div key={index} className="px-1 ">
+                  <motion.div key={index} className="px-1">
                     <ProjectCard image={image} />
                   </motion.div>
                 ))}
               </motion.div>
+
+              <div
+                className="absolute left-0 top-0 bottom-0 z-10"
+                style={{
+                  width: "30px",
+                  height: "100%",
+                  background:
+                    "linear-gradient(270deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+                }}
+              />
+              <div
+                className="absolute right-0 top-0 bottom-0 z-10"
+                style={{
+                  width: "30px",
+                  height: "100%",
+                  background:
+                    "linear-gradient(90deg, rgba(16, 16, 16, 0.00) 0%, #0D0D0D 100%)",
+                }}
+              />
             </motion.div>
           </CardFooter>
         </Card>
