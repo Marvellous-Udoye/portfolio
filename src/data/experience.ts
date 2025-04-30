@@ -26,6 +26,19 @@ export const experienceData = [
     ],
   },
   {
+    company: "Mobtech Limited",
+    position: "Head of SaaS Development",
+    date: "10/24 — 04/25",
+    image: "/mobtech-logo.jpeg",
+    description:
+      "Led SaaS development initiatives and enhanced web presence for the organization.",
+    achievements: [
+      "Worked with team members to design and build the organization's website",
+      "Researched emerging web technologies and trends for possible incorporation into sites",
+      "Implemented Google-based SEO and ad campaigns to meet budget specifications",
+    ],
+  },
+  {
     company: "Archibuzz Studios",
     position: "Freelance Frontend Developer",
     date: "08/24 — 10/24",
