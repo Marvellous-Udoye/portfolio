@@ -233,4 +233,15 @@ export const projectsData = [
     ],
     liveLink: "https://timbu-cloud-app.netlify.app//",
   },
+  {
+    id: 14,
+    name: "Nexum",
+    image: "/nexum.jpg",
+    logo: "/nexum-logo.svg",
+    description:
+      "Nexum is a clean and intuitive Kanban board UI designed in Figma, for efficient task management, collaboration, and streamlined workflows.",
+    techStack: [<FaFigma key="figma" />],
+    liveLink:
+      "https://www.figma.com/design/XyCBbrLKyLM1KIQLhAmHFi/Kanban-Board?node-id=10-7&t=GAzwMCNk1530D1Ix-0",
+  },
 ];
