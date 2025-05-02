@@ -3,7 +3,6 @@
 This is the official README file using [Next.js](https://nextjs.org) bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
-We are making use of pnpm so if you are not familiar with it or haven't heard it before, chances are you don't have it installed
 
 Install using:
 ```bash
