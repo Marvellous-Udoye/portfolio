@@ -4,19 +4,19 @@ This is the official README file using [Next.js](https://nextjs.org) bootstrappe
 
 ## Getting Started
 
-Install using:
+Clone locally:
 ```bash
-npm i -g pnpm
+git clone https://github.com/Marvellous-Udoye/portfolio.git
 ```
 
 Install dependencies:
 ```bash
-pnpm install
+npm install
 ```
 
 Run the development server:
 ```bash
-pnpm dev
+npm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result
