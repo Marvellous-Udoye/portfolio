@@ -1,112 +1,17 @@
 "use client";
 
+import { projectsImages, services, stacks } from "@/data/general";
+import { projectsData } from "@/data/projects";
+import { servicesData } from "@/data/services";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import {
-  FaCss3Alt,
-  FaFigma,
-  FaGit,
-  FaGithub,
-  FaHtml5,
-  FaJs,
-  FaPython,
-  FaReact,
-  FaServer,
-} from "react-icons/fa";
-import {
-  HiOutlineChatAlt,
-  HiOutlineClock,
-  HiOutlineLightBulb,
-  HiOutlineUserGroup,
-} from "react-icons/hi";
-import {
-  SiCloudinary,
-  SiDjango,
-  SiFirebase,
-  SiFramer,
-  SiGooglechrome,
-  SiJest,
-  SiNextdotjs,
-  SiPostman,
-  SiRedux,
-  SiSass,
-  SiShadcnui,
-  SiTailwindcss,
-  SiTypescript,
-  SiVitest,
-} from "react-icons/si";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
-import { Modal } from "../custom/modal";
 import { PaginatedStacks } from "../custom/paginated-stacks";
 import { ProjectCard } from "../custom/project-card";
 import { ServicesIcon, StacksIcon, WorkIcon } from "../icons/icons";
+import { Modal } from "../modal/modal";
 import { Card, CardContent } from "../ui/card";
-
-const stacks = [
-  { icon: <FaHtml5 color="#CCCCCC" size={24} />, text: "HTML5" },
-  { icon: <FaCss3Alt color="#CCCCCC" size={24} />, text: "CSS3" },
-  { icon: <FaJs color="#CCCCCC" size={24} />, text: "JavaScript" },
-  { icon: <SiTypescript color="#CCCCCC" size={24} />, text: "TypeScript" },
-  { icon: <FaReact color="#CCCCCC" size={24} />, text: "React" },
-  { icon: <SiNextdotjs color="#CCCCCC" size={24} />, text: "Next.js" },
-  { icon: <SiTailwindcss color="#CCCCCC" size={24} />, text: "Tailwind CSS" },
-  { icon: <SiSass color="#CCCCCC" size={24} />, text: "SASS" },
-  { icon: <SiSass color="#CCCCCC" size={24} />, text: "SCSS" },
-  { icon: <SiFramer color="#CCCCCC" size={24} />, text: "Framer Motion" },
-  { icon: <SiRedux color="#CCCCCC" size={24} />, text: "Redux" },
-  { icon: <SiShadcnui color="#CCCCCC" size={24} />, text: "ShadCN" },
-  { icon: <FaGit color="#CCCCCC" size={24} />, text: "Git" },
-  { icon: <FaGithub color="#CCCCCC" size={24} />, text: "GitHub" },
-  { icon: <SiJest color="#CCCCCC" size={24} />, text: "Jest" },
-  { icon: <SiVitest color="#CCCCCC" size={24} />, text: "Vitest" },
-  { icon: <FaFigma color="#CCCCCC" size={24} />, text: "Figma" },
-  { icon: <SiFirebase color="#CCCCCC" size={24} />, text: "Firebase" },
-  { icon: <SiDjango color="#CCCCCC" size={24} />, text: "Django" },
-  { icon: <FaPython color="#CCCCCC" size={24} />, text: "Python" },
-  { icon: <SiPostman color="#CCCCCC" size={24} />, text: "Postman" },
-  { icon: <SiGooglechrome color="#CCCCCC" size={24} />, text: "Chrome APIs" },
-  { icon: <SiCloudinary color="#CCCCCC" size={24} />, text: "Cloudinary" },
-];
-
-const services = [
-  {
-    icon: <HiOutlineLightBulb color="#CCCCCC" size={24} />,
-    text: "Problem Solving",
-  },
-  {
-    icon: <HiOutlineUserGroup color="#CCCCCC" size={24} />,
-    text: "Team Leadership",
-  },
-  {
-    icon: <HiOutlineChatAlt color="#CCCCCC" size={24} />,
-    text: "Communication",
-  },
-  {
-    icon: <HiOutlineClock color="#CCCCCC" size={24} />,
-    text: "Time Management",
-  },
-  {
-    icon: <FaServer color="#CCCCCC" size={24} />,
-    text: "DevOps & Deployment",
-  },
-];
-
-const projectsImages = [
-  "/genz.ad.jpg",
-  "/departmental-portal.jpg",
-  "/my-uni.jpg",
-  "/devlinks.png",
-  "/mobtech.jpg",
-  "/ticz.jpg",
-  "/e-library.jpg",
-  "/ai-text-processor.jpg",
-  "/woodz.png",
-  "/book-tracker.jpg",
-  "/color.jpg",
-  "/timbu.jpg",
-  "/archibuzz.jpg",
-];
 
 export const FirstGrid = () => {
   const [width, setWidth] = useState<number>(0);
@@ -207,7 +112,7 @@ export const FirstGrid = () => {
           </motion.div>
         </CardContent>
         <div className="absolute bottom-4.5 left-1/4 max-xl:left-1/2 max-xl:-translate-x-1/2">
-          <Modal type="projects" />
+          <Modal type="projects" data={projectsData} />
         </div>
       </Card>
 
@@ -305,7 +210,7 @@ export const FirstGrid = () => {
           </motion.div>
         </CardContent>
         <div className="absolute bottom-4.5 left-[20%] max-xl:left-1/2 max-xl:-translate-x-1/2">
-          <Modal type="services" />
+          <Modal type="services" data={servicesData} />
         </div>
       </Card>
     </section>

@@ -1,15 +1,20 @@
 "use client";
 
+import { experienceData } from "@/data/experience";
 import { AnimatePresence, motion } from "framer-motion";
-import { Film, QuoteIcon } from "lucide-react";
+import { QuoteIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FaBasketballBall, FaCode } from "react-icons/fa";
-import { SiCrowdsource } from "react-icons/si";
+
+import {
+  experiences,
+  galleryImages,
+  hobbies,
+  testimonials,
+} from "@/data/general";
 import { Header } from "../custom/card-header";
 import { ExperienceCard } from "../custom/experience-card";
 import { MiniCard } from "../custom/mini-card";
-import { Modal } from "../custom/modal";
 import { ProjectCard } from "../custom/project-card";
 import {
   ContactIcon,
@@ -18,6 +23,7 @@ import {
   ProjectsIcon,
   WhatsappIcon,
 } from "../icons/icons";
+import { Modal } from "../modal/modal";
 import {
   Card,
   CardContent,
@@ -26,80 +32,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-
-const testimonials = [
-  {
-    text: "Marvellous delivered exceptional work that exceeded our expectations. His attention to detail is remarkable.",
-    author: "Frontend Developer",
-    position: "HNG",
-  },
-  {
-    text: "Working with Marvellous was a pleasure. He brings innovative solutions to complex problems.",
-    author: "Backend Developer",
-    position: "Ghreatness Labs",
-  },
-  {
-    text: "His code quality and UI implementations are top-notch. Would definitely work with him again.",
-    author: "Fullstack Developer",
-    position: "Mobtech Limited",
-  },
-];
-
-const hobbies = [
-  {
-    icon: <FaCode color="#CCCCCC" size={24} />,
-    text: "Programming",
-  },
-  {
-    icon: <FaBasketballBall color="#CCCCCC" size={24} />,
-    text: "Playing Basketball",
-  },
-  {
-    icon: <Film color="#CCCCCC" size={24} />,
-    text: "Watching Anime",
-  },
-  {
-    icon: <SiCrowdsource color="#CCCCCC" size={24} />,
-    text: "Socializing",
-  },
-];
-
-const experiences = [
-  {
-    company: "HNG Tech",
-    date: "02/25 — 04/25",
-    image: "/hng-logo.jpeg",
-  },
-  {
-    company: "Ghreatness Labs",
-    date: "11/24 — 04/25",
-    image: "/ghreatness-labs-logo.png",
-  },
-  {
-    company: "Mobtech Limited",
-    date: "10/24 — 04/25",
-    image: "/mobtech-logo.jpeg",
-  },
-  {
-    company: "Archibuzz",
-    date: "08/24 — 10/24",
-    image: "/archibuzz-logo.jpg",
-  },
-  {
-    company: "HNG Tech",
-    date: "06/24",
-    image: "/hng-logo.jpeg",
-  },
-];
-
-const galleryImages = [
-  "/gallery-1.jpg",
-  "/gallery-2.jpg",
-  "/gallery-3.jpg",
-  "/gallery-4.jpg",
-  "/gallery-5.jpg",
-  "/gallery-6.jpg",
-];
 
 export const ThirdGrid = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -168,7 +100,7 @@ export const ThirdGrid = () => {
               style={{ overflow: "hidden" }}
             >
               <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-                <Modal type="experiences" />
+                <Modal type="experiences" data={experienceData} />
               </div>
 
               <motion.div

@@ -3,88 +3,14 @@
 import { ProfileCard } from "@/components/custom/profile-card";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import {
-  FaGithub,
-  FaLightbulb,
-  FaLinkedin,
-  FaPaintBrush,
-  FaPalette,
-  FaRegGem,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { StatsCard } from "../custom/stats";
-import {
-  DegreeIcon,
-  FirstStatIcon,
-  GlobeIcon,
-  InspirationIcon,
-  LocationIcon,
-  SecondStatIcon,
-  ThirdStatIcon,
-  TimeIcon,
-} from "../icons/icons";
+import { InspirationIcon } from "../icons/icons";
+
+import { inspirations, profileDetails, stats } from "@/data/general";
 import { Card, CardContent } from "../ui/card";
-
-const inspirations = [
-  {
-    icon: <FaPaintBrush color="#CCCCCC" size={24} />,
-    text: "Dribbble Designers",
-  },
-  {
-    icon: <FaPalette color="#CCCCCC" size={24} />,
-    text: "Aesthetic Approach",
-  },
-  {
-    icon: <FaLightbulb color="#CCCCCC" size={24} />,
-    text: "Everyday Creativity",
-  },
-  {
-    icon: <FaRegGem color="#CCCCCC" size={24} />,
-    text: "User-Centered Design",
-  },
-];
-
-const stats = [
-  {
-    icon: <SecondStatIcon />,
-    text: "Experience",
-    count: 1,
-  },
-  {
-    icon: <ThirdStatIcon />,
-    text: "Collabs",
-    count: 5,
-  },
-  {
-    icon: <FirstStatIcon />,
-    text: "Projects",
-    count: 28,
-  },
-];
-
-const profileDetails = [
-  {
-    label: "Nigeria",
-    icon: <LocationIcon />,
-  },
-  {
-    label: "English",
-    icon: <GlobeIcon />,
-  },
-  {
-    label: "Frontend Developer",
-    icon: <FirstStatIcon />,
-  },
-  {
-    label: "Bells University of Technology",
-    icon: <DegreeIcon />,
-  },
-  {
-    label: "UTC",
-    icon: <TimeIcon />,
-  },
-];
 
 export const SecondGrid = () => {
   const [clientWidth, setClientWidth] = useState<number>(0);

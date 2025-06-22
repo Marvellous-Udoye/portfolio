@@ -11,12 +11,17 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Frontend Developer | Marvellous",
-    template: "%s | Frontend Developer | Marvellous Udoye",
+    default: "Marvellous | Software Developer",
+    template: "%s | Software Developer | Marvellous Udoye",
   },
+  icons: [
+    { rel: "icon", url: "/logo.svg", type: "image/svg+xml" },
+    { rel: "apple-touch-icon", url: "/logo.svg" },
+  ],
   description:
-    "I'm Marvellous Udoye, a frontend developer passionate about building clean, responsive, and interactive web apps. This portfolio showcases my projects, skills, and experience as I grow in the world of web development.",
+    "I'm Marvellous Udoye, a software developer. Explore software projects I've built, each one highlights what it does, and the technologies and skills I used.",
   keywords: [
+    "software developer",
     "frontend developer",
     "ui/ux specialist",
     "Next.js engineer",
@@ -25,7 +30,6 @@ export const metadata: Metadata = {
     "JavaScript",
     "Tailwind CSS",
     "portfolio",
-    "software development",
     "hng12 finalist",
     "responsive design expert",
   ],
@@ -41,10 +45,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://marv-lous.vercel.app/",
-    siteName: "Marvellous Udoye | Frontend Developer",
-    title: "Marvellous Udoye - Frontend Developer & Web Enthusiast",
+    siteName: "Marvellous Udoye | Software Developer",
+    title: "Marvellous Udoye - Software Developer",
     description:
-      "Explore my developer portfolio where I showcase modern, user-friendly projects. I'm Marvellous Udoye, a frontend developer passionate about building clean, responsive, and interactive web apps.",
+      "Explore software projects I've built, each one highlights what it does, and the technologies and skills I used.",
   },
   applicationName: "Marvellous Udoye's Portfolio",
   category: "Technology",
@@ -57,14 +61,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={jakarta.variable}>
-      <head>
-        <meta httpEquiv="Pragma" content="no-cache" />
-        <meta
-          httpEquiv="Cache-Control"
-          content="no-store, no-cache, must-revalidate"
-        />
-        <link rel="icon" href="/logo.png" type="image/png" />
-      </head>
       <body className="font-jakarta antialiased">{children}</body>
     </html>
   );
