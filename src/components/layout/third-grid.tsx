@@ -36,17 +36,29 @@ import {
 export const ThirdGrid = () => {
   const [isDragging, setIsDragging] = useState(false);
   const constraintsRef = useRef(null);
-
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollHeight, setScrollHeight] = useState(0);
+  const extendedExperiences = [...experiences, ...experiences];
+  const [width, setWidth] = useState<number>(0);
+  const galleryCarousel = useRef<HTMLDivElement>(null);
+  const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const experienceDuration = isMobile ? 8 : 20;
+  const feedbackDuration = isMobile ? 10 : 30;
 
   useEffect(() => {
     if (scrollRef.current) {
       setScrollHeight(scrollRef.current.scrollHeight);
     }
   }, []);
-
-  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -55,11 +67,6 @@ export const ThirdGrid = () => {
 
     return () => clearInterval(timer);
   }, []);
-
-  const extendedExperiences = [...experiences, ...experiences];
-
-  const [width, setWidth] = useState<number>(0);
-  const galleryCarousel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (galleryCarousel.current) {
@@ -118,7 +125,7 @@ export const ThirdGrid = () => {
                           y: {
                             repeat: Infinity,
                             repeatType: "loop",
-                            duration: 20,
+                            duration: experienceDuration,
                             ease: "linear",
                           },
                         },
@@ -206,7 +213,7 @@ export const ThirdGrid = () => {
                   transition: {
                     repeat: Infinity,
                     repeatType: "loop",
-                    duration: 30,
+                    duration: feedbackDuration,
                     ease: "linear",
                   },
                 }}

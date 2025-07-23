@@ -16,6 +16,16 @@ export const SecondGrid = () => {
   const [clientWidth, setClientWidth] = useState<number>(0);
   const clientsCarouselForward = useRef<HTMLDivElement>(null);
   const clientsCarouselBackward = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const inspirationDuration = isMobile ? 10 : 15;
 
   useEffect(() => {
     if (clientsCarouselForward.current) {
@@ -95,7 +105,7 @@ export const SecondGrid = () => {
                 transition: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 15,
+                  duration: inspirationDuration,
                   ease: "linear",
                 },
               }}
@@ -139,7 +149,7 @@ export const SecondGrid = () => {
                 transition: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 15,
+                  duration: inspirationDuration,
                   ease: "linear",
                 },
               }}

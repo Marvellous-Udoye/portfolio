@@ -19,6 +19,17 @@ export const FirstGrid = () => {
   const projectsCarousel = useRef<HTMLDivElement>(null);
   const servicesCarouselForward = useRef<HTMLDivElement>(null);
   const servicesCarouselBackward = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const projectDuration = isMobile ? 15 : 20; 
+  const serviceDuration = isMobile ? 18 : 45; 
 
   useEffect(() => {
     if (projectsCarousel.current) {
@@ -89,7 +100,7 @@ export const FirstGrid = () => {
                 transition: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 20,
+                  duration: projectDuration,
                   ease: "linear",
                 },
               }}
@@ -135,7 +146,7 @@ export const FirstGrid = () => {
                 transition: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 45,
+                  duration: serviceDuration,
                   ease: "linear",
                 },
               }}
@@ -178,7 +189,7 @@ export const FirstGrid = () => {
                 transition: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 45,
+                  duration: serviceDuration,
                   ease: "linear",
                 },
               }}
