@@ -42,7 +42,7 @@ export const projectsData = [
       <SiCloudinary key="cloudinary" />,
       <SiPostman key="postman" />,
     ],
-    liveLink: "https://genz.ad/",
+    liveLink: "https://genz-ad.vercel.app/",
   },
   {
     id: 2,
