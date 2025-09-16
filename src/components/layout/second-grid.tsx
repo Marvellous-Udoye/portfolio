@@ -2,6 +2,7 @@
 
 import { ProfileCard } from "@/components/custom/profile-card";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { useEffect, useRef, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Header } from "../custom/card-header";
@@ -16,17 +17,14 @@ export const SecondGrid = () => {
   const [clientWidth, setClientWidth] = useState<number>(0);
   const clientsCarouselForward = useRef<HTMLDivElement>(null);
   const clientsCarouselBackward = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const inspirationDuration = isMobile ? 10 : 15;
-
+  const inspirationSpeed = isMobile ? 42 : 58;
+  const minInspirationDuration = isMobile ? 12 : 18;
+  const inspirationDuration =
+    clientWidth > 0
+      ? Math.max(clientWidth / inspirationSpeed, minInspirationDuration)
+      : minInspirationDuration;
   useEffect(() => {
     if (clientsCarouselForward.current) {
       setClientWidth(

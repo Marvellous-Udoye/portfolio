@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { QuoteIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 import {
   experiences,
@@ -42,17 +43,20 @@ export const ThirdGrid = () => {
   const [width, setWidth] = useState<number>(0);
   const galleryCarousel = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const experienceSpeed = isMobile ? 80 : 110;
+  const feedbackSpeed = isMobile ? 48 : 65;
+  const minExperienceDuration = isMobile ? 8 : 18;
+  const minFeedbackDuration = isMobile ? 10 : 24;
 
-  const experienceDuration = isMobile ? 8 : 20;
-  const feedbackDuration = isMobile ? 10 : 30;
+  const experienceDistance = scrollHeight / 2;
+  const experienceDuration =
+    experienceDistance > 0
+      ? Math.max(experienceDistance / experienceSpeed, minExperienceDuration)
+      : minExperienceDuration;
+  const feedbackDuration =
+    width > 0 ? Math.max(width / feedbackSpeed, minFeedbackDuration) : minFeedbackDuration;
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -113,10 +117,18 @@ export const ThirdGrid = () => {
               <motion.div
                 ref={scrollRef}
                 className="px-5 space-y-3 pt-16"
-                drag="y"
-                dragConstraints={constraintsRef}
-                onDragStart={() => setIsDragging(true)}
-                onDragEnd={() => setIsDragging(false)}
+                drag={isMobile ? false : "y"}
+                dragConstraints={isMobile ? undefined : constraintsRef}
+                onDragStart={() => {
+                  if (!isMobile) {
+                    setIsDragging(true);
+                  }
+                }}
+                onDragEnd={() => {
+                  if (!isMobile) {
+                    setIsDragging(false);
+                  }
+                }}
                 animate={
                   !isDragging
                     ? {

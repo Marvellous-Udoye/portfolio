@@ -2,24 +2,14 @@
 
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 export function GlobalGlowEffect({ children }: { children: React.ReactNode }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [boundingRect, setBoundingRect] = useState<DOMRect | null>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const [isMobileOrMedium, setIsMobileOrMedium] = useState(false);
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobileOrMedium(window.innerWidth < 1024);
-    };
-
-    checkScreenSize();
-
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
+  const isMobileOrMedium = useIsMobile(1023);
 
   useEffect(() => {
     if (isMobileOrMedium) return;
@@ -91,3 +81,6 @@ export function GlobalGlowEffect({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+
+
+

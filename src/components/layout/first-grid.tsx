@@ -5,6 +5,7 @@ import { projectsData } from "@/data/projects";
 import { servicesData } from "@/data/services";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { PaginatedStacks } from "../custom/paginated-stacks";
@@ -19,18 +20,19 @@ export const FirstGrid = () => {
   const projectsCarousel = useRef<HTMLDivElement>(null);
   const servicesCarouselForward = useRef<HTMLDivElement>(null);
   const servicesCarouselBackward = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+  const projectSpeed = isMobile ? 40 : 55;
+  const serviceSpeed = isMobile ? 32 : 50;
+  const minProjectDuration = isMobile ? 12 : 18;
+  const minServiceDuration = isMobile ? 14 : 26;
 
-  const projectDuration = isMobile ? 15 : 20; 
-  const serviceDuration = isMobile ? 18 : 45; 
-
+  const projectDuration =
+    width > 0 ? Math.max(width / projectSpeed, minProjectDuration) : minProjectDuration;
+  const serviceDuration =
+    serviceWidth > 0
+      ? Math.max(serviceWidth / serviceSpeed, minServiceDuration)
+      : minServiceDuration;
   useEffect(() => {
     if (projectsCarousel.current) {
       setWidth(
