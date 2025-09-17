@@ -1,16 +1,10 @@
-import {
-  FaCss3Alt,
-  FaFigma,
-  FaHtml5,
-  FaJs,
-  FaPython,
-  FaReact,
-} from "react-icons/fa";
+import { FaFigma, FaJs, FaPython, FaReact } from "react-icons/fa";
 import {
   SiCloudinary,
   SiDjango,
   SiFirebase,
   SiFramer,
+  SiGmail,
   SiGooglechrome,
   SiHeadlessui,
   SiMui,
@@ -18,6 +12,7 @@ import {
   SiPostman,
   SiRedux,
   SiShadcnui,
+  SiSupabase,
   SiTailwindcss,
   SiTypescript,
   SiUikit,
@@ -26,7 +21,23 @@ import {
 
 export const projectsData = [
   {
-    id: 1,
+    name: "Sync",
+    image: "/sync.png",
+    logo: "/sync-logo.svg",
+    description:
+      "Sync your digital assets effortlessly. Keep your links, notes, files, and ideas organized and accessible across all your devices.",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiFramer key="framer" />,
+      <SiShadcnui key="shadcn" />,
+      <FaFigma key="figma" />,
+      <SiSupabase key="supabase" />,
+    ],
+    liveLink: "https://s-ync.vercel.app/",
+  },
+  {
     name: "Genz.ad",
     image: "/genz.ad.jpg",
     logo: "/genz.ad-logo.svg",
@@ -45,12 +56,27 @@ export const projectsData = [
     liveLink: "https://genz-ad.vercel.app/",
   },
   {
-    id: 2,
+    name: "VFGL",
+    image: "/vfgl.png",
+    logo: "/vfgl-logo.png",
+    description:
+      "VFGL Tech builds innovative, secure, and intelligent digital solutions that power businesses of tomorrow.",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiFramer key="framer" />,
+      <SiShadcnui key="shadcn" />,
+      <SiGmail key="nodemailer" />,
+    ],
+    liveLink: "https://www.vfgl.tech/",
+  },
+  {
     name: "Departmental Portal",
     image: "/departmental-portal.jpg",
     logo: "/departmental-portal-logo.jpg",
     description:
-      "Connect, collaborate, and thrive in your academic journey. Access course materials, track documents, receive important notifications, and stay updated with departmental activities - all in one seamless platform.",
+      "Access course materials, track documents, receive important notifications, and stay updated with departmental activities - all in one seamless platform.",
     techStack: [
       <SiNextdotjs key="next" />,
       <SiTypescript key="ts" />,
@@ -63,7 +89,6 @@ export const projectsData = [
     liveLink: "https://departmental-portal-s.vercel.app/",
   },
   {
-    id: 3,
     name: "MyUni",
     image: "/my-uni.jpg",
     logo: "/my-uni-logo.jpg",
@@ -78,7 +103,6 @@ export const projectsData = [
     liveLink: "https://my-uni-rho.vercel.app/",
   },
   {
-    id: 4,
     name: "DevLinks",
     image: "/devlinks.png",
     logo: "/devlinks-logo.svg",
@@ -94,7 +118,21 @@ export const projectsData = [
     liveLink: "https://devlinks-full-stack-app.vercel.app/",
   },
   {
-    id: 5,
+    name: "Misplace me",
+    image: "/misplace-me.png",
+    logo: "/misplaceme-logo.png",
+    description:
+      "MisplaceMe is a full-stack platform designed to reconnect lost items with their owners. It uses detailed reports from users to securely and efficiently reunite belongings. ",
+    techStack: [
+      <FaReact key="react" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiTypescript key="ts" />,
+      <SiPostman key="postman" />,
+      <SiVitest key="jest" />,
+    ],
+    liveLink: "https://misplaceme.vercel.app/",
+  },
+  {
     name: "Mobtech",
     image: "/mobtech.jpg",
     logo: "/mobtech-logo.jpeg",
@@ -110,22 +148,21 @@ export const projectsData = [
     liveLink: "https://www.mobtechsynergies.com/",
   },
   {
-    id: 6,
-    name: "Ticz",
-    image: "/ticz.jpg",
-    logo: "/ticz-logo.svg",
+    name: "AI Text Processor",
+    image: "/ai-text-processor.jpg",
+    logo: "/ai-text-processor-logo.svg",
     description:
-      "Book events with Ticz, seamless and quick; no login needed, just grab your ticket with a click.",
+      "Experience AI-powered text processing with smart summarization, detection and translation capabilities.",
     techStack: [
       <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
       <SiTailwindcss key="tailwind" />,
-      <SiCloudinary key="cloudinary" />,
+      <SiTypescript key="ts" />,
+      <SiHeadlessui key="headlessui" />,
+      <SiGooglechrome key="chrome" />,
     ],
-    liveLink: "https://conference-ticket-generator-delta.vercel.app/",
+    liveLink: "https://ai-text-processor-sdt.vercel.app/",
   },
   {
-    id: 7,
     name: "E-library",
     image: "/e-library.jpg",
     logo: "/e-library-logo.jpg",
@@ -143,37 +180,20 @@ export const projectsData = [
     liveLink: "https://e-library-ws.vercel.app/",
   },
   {
-    id: 8,
-    name: "Woodz",
-    image: "/woodz.png",
-    logo: "/woodz-logo.svg",
+    name: "Ticz",
+    image: "/ticz.jpg",
+    logo: "/ticz-logo.svg",
     description:
-      "Explore Woodz for furniture that's good, artisanal craftsmanship carved from premium wood.",
-    techStack: [
-      <FaHtml5 key="html" />,
-      <FaCss3Alt key="css" />,
-      <FaFigma key="figma" />,
-    ],
-    liveLink: "https://marvellous-udoye.github.io/woodz/",
-  },
-  {
-    id: 9,
-    name: "AI Text Processor",
-    image: "/ai-text-processor.jpg",
-    logo: "/ai-text-processor-logo.svg",
-    description:
-      "Experience AI-powered text processing with smart summarization, detection and translation capabilities.",
+      "Book events with Ticz, seamless and quick; no login needed, just grab your ticket with a click.",
     techStack: [
       <SiNextdotjs key="next" />,
-      <SiTailwindcss key="tailwind" />,
       <SiTypescript key="ts" />,
-      <SiHeadlessui key="headlessui" />,
-      <SiGooglechrome key="chrome" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiCloudinary key="cloudinary" />,
     ],
-    liveLink: "https://ai-text-processor-sdt.vercel.app/",
+    liveLink: "https://conference-ticket-generator-delta.vercel.app/",
   },
   {
-    id: 10,
     name: "Book Tracker",
     image: "/book-tracker.jpg",
     logo: "/book-tracker.jpg",
@@ -188,21 +208,6 @@ export const projectsData = [
     liveLink: "https://book-tracking-app-nu.vercel.app/",
   },
   {
-    id: 11,
-    name: "Color Game",
-    image: "/color.jpg",
-    logo: "/color.jpg",
-    description:
-      "The Color Game brings fun and fame, test your color perception in this addictive brain game.",
-    techStack: [
-      <FaReact key="react" />,
-      <FaJs key="js" />,
-      <FaCss3Alt key="css" />,
-    ],
-    liveLink: "https://timbu-cloud-app.netlify.app//",
-  },
-  {
-    id: 12,
     name: "Archibuzz",
     image: "/archibuzz.jpg",
     logo: "/archibuzz-logo.jpg",
@@ -218,7 +223,6 @@ export const projectsData = [
     liveLink: "https://archi-buzz.vercel.app/",
   },
   {
-    id: 13,
     name: "Timbu Cloud Store",
     image: "/timbu.jpg",
     logo: "/timbu-logo.svg",
@@ -234,7 +238,6 @@ export const projectsData = [
     liveLink: "https://timbu-cloud-app.netlify.app//",
   },
   {
-    id: 14,
     name: "Nexum",
     image: "/nexum.jpg",
     logo: "/nexum-logo.svg",

@@ -13,7 +13,7 @@ export const ProjectCard = ({ image }: ProjectCardProps) => {
         width={126}
         height={80}
         priority
-        className="w-full h-full rounded-[10px] object-cover hover:scale-105 transition-transform duration-300 ease-in-out"
+        className="w-full h-full rounded-[10px] object-cotain hover:scale-105 transition-transform duration-300 ease-in-out"
         onError={(e) => {
           e.currentTarget.src = "/next.svg";
           e.currentTarget.alt = "Error loading image";

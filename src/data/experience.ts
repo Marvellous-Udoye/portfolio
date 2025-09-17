@@ -1,5 +1,18 @@
 export const experienceData = [
   {
+    company: "Grundpay",
+    position: "Software Developer",
+    date: "07/25 — Present",
+    image: "/grundpay-logo.svg",
+    description:
+      "Developed a fintech platform to streamline and secure installment payments for real estate transactions.",
+    achievements: [
+      "Engineered a secure and reliable platform to manage real estate installment payments.",
+      "Developed a robust wallet system for users to manage their funds seamlessly",
+      "Created separate user dashboards for buyers, developers, and brokers to manage their respective activities",
+    ],
+  },
+  {
     company: "HNG 12 Internship",
     position: "Frontend Developer Intern",
     date: "02/25 — 04/25",

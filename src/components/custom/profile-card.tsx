@@ -42,7 +42,7 @@ export const ProfileCard = ({
           <AvatarImage
             src={imageUrl ?? "/next.svg"}
             alt={name}
-            className="w-[107px] h-[110px] rounded-2xl object-cover"
+            className="w-[107px] h-[110px] rounded-full object-cover"
           />
           <AvatarFallback className="bg-[#1D1B23] w-[107px] h-[110px] text-[#CCC] text-lg font-medium">
             {initials}

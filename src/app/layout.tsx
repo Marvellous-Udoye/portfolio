@@ -18,8 +18,7 @@ export const metadata: Metadata = {
     { rel: "icon", url: "/logo.svg", type: "image/svg+xml" },
     { rel: "apple-touch-icon", url: "/logo.svg" },
   ],
-  description:
-    "I'm Marvellous Udoye, a software developer. Explore software projects I've built, each one highlights what it does, and the technologies and skills I used.",
+  description: "Software developer != average",
   keywords: [
     "software developer",
     "frontend developer",
@@ -47,8 +46,7 @@ export const metadata: Metadata = {
     url: "https://marv-lous.vercel.app/",
     siteName: "Marvellous Udoye | Software Developer",
     title: "Marvellous Udoye - Software Developer",
-    description:
-      "Explore software projects I've built, each one highlights what it does, and the technologies and skills I used.",
+    description: "Software developer != average",
   },
   applicationName: "Marvellous Udoye's Portfolio",
   category: "Technology",
