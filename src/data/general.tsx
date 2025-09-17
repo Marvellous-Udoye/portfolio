@@ -1,52 +1,56 @@
 import { Film } from "lucide-react";
 import {
-    FaBasketballBall,
-    FaCode,
-    FaCss3Alt,
-    FaFigma,
-    FaGit,
-    FaGithub,
-    FaHtml5,
-    FaJs,
-    FaLightbulb,
-    FaPaintBrush,
-    FaPalette,
-    FaPython,
-    FaReact,
-    FaRegGem,
-    FaServer,
+  FaBasketballBall,
+  FaCode,
+  FaCss3Alt,
+  FaFigma,
+  FaGit,
+  FaGithub,
+  FaHtml5,
+  FaJs,
+  FaLightbulb,
+  FaPaintBrush,
+  FaPalette,
+  FaPython,
+  FaReact,
+  FaRegGem,
+  FaServer,
 } from "react-icons/fa";
 import {
-    HiOutlineChatAlt,
-    HiOutlineClock,
-    HiOutlineLightBulb,
-    HiOutlineUserGroup,
+  HiOutlineChatAlt,
+  HiOutlineClock,
+  HiOutlineLightBulb,
+  HiOutlineUserGroup,
 } from "react-icons/hi";
 import {
-    SiCloudinary,
-    SiCrowdsource,
-    SiDjango,
-    SiFirebase,
-    SiFramer,
-    SiGooglechrome,
-    SiJest,
-    SiNextdotjs,
-    SiPostman,
-    SiRedux,
-    SiSass,
-    SiShadcnui,
-    SiTailwindcss,
-    SiTypescript,
-    SiVitest,
+  SiAmazonwebservices,
+  SiCloudinary,
+  SiCrowdsource,
+  SiDjango,
+  SiFirebase,
+  SiFramer,
+  SiGooglechrome,
+  SiJest,
+  SiNextdotjs,
+  SiPostman,
+  SiReactquery,
+  SiRedux,
+  SiSass,
+  SiShadcnui,
+  SiSupabase,
+  SiTailwindcss,
+  SiTypescript,
+  SiVitest,
+  SiZod,
 } from "react-icons/si";
 import {
-    DegreeIcon,
-    FirstStatIcon,
-    GlobeIcon,
-    LocationIcon,
-    SecondStatIcon,
-    ThirdStatIcon,
-    TimeIcon,
+  DegreeIcon,
+  FirstStatIcon,
+  GlobeIcon,
+  LocationIcon,
+  SecondStatIcon,
+  ThirdStatIcon,
+  TimeIcon,
 } from "../components/icons/icons";
 
 export const inspirations = [
@@ -95,6 +99,10 @@ export const profileDetails = [
     label: "English",
     icon: <GlobeIcon />,
   },
+    {
+    label: "UTC",
+    icon: <TimeIcon />,
+  },
   {
     label: "Frontend Engineer",
     icon: <FirstStatIcon />,
@@ -103,10 +111,7 @@ export const profileDetails = [
     label: "Bells University of Technology",
     icon: <DegreeIcon />,
   },
-  {
-    label: "UTC",
-    icon: <TimeIcon />,
-  },
+
 ];
 
 export const stacks = [
@@ -122,12 +127,16 @@ export const stacks = [
   { icon: <SiFramer color="#CCCCCC" size={24} />, text: "Framer Motion" },
   { icon: <SiRedux color="#CCCCCC" size={24} />, text: "Redux" },
   { icon: <SiShadcnui color="#CCCCCC" size={24} />, text: "ShadCN" },
+  { icon: <SiReactquery color="#CCCCCC" size={24} />, text: "Tanstack Query" },
+  { icon: <SiZod color="#CCCCCC" size={24} />, text: "Zod" },
   { icon: <FaGit color="#CCCCCC" size={24} />, text: "Git" },
   { icon: <FaGithub color="#CCCCCC" size={24} />, text: "GitHub" },
   { icon: <SiJest color="#CCCCCC" size={24} />, text: "Jest" },
   { icon: <SiVitest color="#CCCCCC" size={24} />, text: "Vitest" },
   { icon: <FaFigma color="#CCCCCC" size={24} />, text: "Figma" },
   { icon: <SiFirebase color="#CCCCCC" size={24} />, text: "Firebase" },
+  { icon: <SiSupabase color="#CCCCCC" size={24} />, text: "Supabase" },
+  { icon: <SiAmazonwebservices color="#CCCCCC" size={24} />, text: "AWS" },
   { icon: <SiDjango color="#CCCCCC" size={24} />, text: "Django" },
   { icon: <FaPython color="#CCCCCC" size={24} />, text: "Python" },
   { icon: <SiPostman color="#CCCCCC" size={24} />, text: "Postman" },
@@ -136,7 +145,9 @@ export const stacks = [
 ];
 
 export const projectsImages = [
+  "/sync.png",
   "/genz.ad.jpg",
+  "/vfgl.png",
   "/departmental-portal.jpg",
   "/my-uni.jpg",
   "/devlinks.png",
@@ -213,6 +224,11 @@ export const hobbies = [
 
 export const experiences = [
   {
+    company: "Grundpay",
+    date: "07/25 — Present",
+    image: "/grundpay-logo.svg",
+  },
+  {
     company: "HNG Tech",
     date: "02/25 — 04/25",
     image: "/hng-logo.jpeg",
@@ -240,9 +256,8 @@ export const experiences = [
 ];
 
 export const galleryImages = [
-  "/gallery-1.jpg",
+  "/gallery-1.png",
   "/gallery-2.jpg",
-  "/gallery-3.jpg",
   "/gallery-4.jpg",
   "/gallery-5.jpg",
   "/gallery-6.jpg",

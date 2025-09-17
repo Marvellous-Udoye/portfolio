@@ -1,7 +1,6 @@
 import type { ReactElement } from "react";
 
 export interface ProjectData {
-  id: number
   name: string
   logo?: string
   image: string

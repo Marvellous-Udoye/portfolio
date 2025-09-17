@@ -1,16 +1,19 @@
 "use client";
 
 import { ProfileCard } from "@/components/custom/profile-card";
-import { motion } from "framer-motion";
+import {
+  profileDetails as baseProfileDetails,
+  inspirations,
+  stats,
+} from "@/data/general";
 import { useIsMobile } from "@/hooks/use-is-mobile";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Header } from "../custom/card-header";
 import { MiniCard } from "../custom/mini-card";
 import { StatsCard } from "../custom/stats";
 import { InspirationIcon } from "../icons/icons";
-
-import { inspirations, profileDetails, stats } from "@/data/general";
 import { Card, CardContent } from "../ui/card";
 
 export const SecondGrid = () => {
@@ -46,6 +49,21 @@ export const SecondGrid = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const profileDetails = useMemo(() => {
+    const utcIndex = baseProfileDetails.findIndex((d) => d.label === "UTC");
+    if (utcIndex === -1) return baseProfileDetails;
+
+    const utcItem = baseProfileDetails[utcIndex];
+    const filtered = baseProfileDetails.filter((_, i) => i !== utcIndex);
+
+    if (isMobile) {
+      filtered.splice(2, 0, utcItem);
+      return filtered;
+    } else {
+      return [...filtered, utcItem];
+    }
+  }, [isMobile]);
+
   return (
     <section className="grid grid-cols-1 gap-3">
       <div className="flex gap-3 max-h-30 md:max-h-[132px] w-full">
@@ -62,12 +80,12 @@ export const SecondGrid = () => {
       <ProfileCard
         name="Marvellous Udoye"
         roles={[
-          "Frontend Developer",
-          "UI/UX Specialist",
-          "Next.js Engineer",
+          "Software Developer",
+          "Next.js Specialist",
           "HNG12 Finalist",
+          "UX Specialist",
         ]}
-        imageUrl="/profile-picture.jpg"
+        imageUrl="/profile-image.png"
         initials="MU"
         profileDetails={profileDetails}
         socialLinks={[

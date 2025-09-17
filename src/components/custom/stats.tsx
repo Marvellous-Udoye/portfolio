@@ -21,26 +21,26 @@ export const StatsCard = ({ icon, text, count }: StatsProps) => {
   }, []);
 
   return (
-    <Card className="pt-5 px-1.5 pb-1.5 md:px-2.5 flex flex-col gap-2 rounded-[14px] w-full">
+    <Card className="px-1.5 pt-1.5 pb-2.5 md:px-2.5 flex flex-col gap-2 rounded-[14px] w-full">
       <div className="relative">
-        <div className="flex items-center justify-center gap-1.5">
+        <div className="flex items-center justify-center gap-1.5 py-1">
           <h1 className="text-[#999] font-medium text-4xl sm:text-5xl flex">
             {isVisible ? <FlipNumber number={count} /> : <span>01</span>}
           </h1>
           <FaPlus color="#916CE7" className="size-4 md:size-5" />
         </div>
         <div
-          className="absolute left-[0.832px] top-[2px] w-full h-1.5 md:h-2 pointer-events-none"
+          className="absolute left-[0.832px] top-0 w-full h-2 md:h-3 pointer-events-none rounded-t-md"
           style={{
             background:
-              "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, #111 100%)",
+              "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.7) 100%)",
           }}
         ></div>
         <div
-          className="absolute left-[0.832px] bottom-[2px] w-full h-4 md:h-5 pointer-events-none"
+          className="absolute left-[0.832px] bottom-0 w-full h-5 md:h-6 pointer-events-none rounded-b-md"
           style={{
             background:
-              "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #111 100%)",
+              "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.9) 100%)",
           }}
         ></div>
       </div>
