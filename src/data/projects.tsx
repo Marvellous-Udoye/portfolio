@@ -15,15 +15,17 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
+  SiVite,
   SiUikit,
   SiVitest,
 } from "react-icons/si";
+import { RiGeminiFill } from "react-icons/ri";
 
 export const projectsData = [
   {
     name: "Sync",
     image: "/sync.png",
-    logo: "/sync-logo.svg",
+    logo: "/sync-logo.png",
     description:
       "Sync your digital assets effortlessly. Keep your links, notes, files, and ideas organized and accessible across all your devices.",
     techStack: [
@@ -54,6 +56,51 @@ export const projectsData = [
       <SiPostman key="postman" />,
     ],
     liveLink: "https://genz-ad.vercel.app/",
+  },
+  {
+    name: "Mind Haven",
+    image: "/mind-haven.png",
+    logo: "/mind-haven-logo.svg",
+    description:
+      "Mind Haven connects care seekers with mental health providers to find therapists, book and manage appointments, and communicate securely.",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiSupabase key="supabase" />,
+      <SiFramer key="framer" />,
+    ],
+    liveLink: "https://mind-haven-care.vercel.app/",
+  },
+  {
+    name: "TrueNorth",
+    image: "/true-north.png",
+    logo: "/true-north-logo.jpeg",
+    description:
+      "TrueNorth Talent Advisory delivers executive search, strategic recruitment, and career services across tech, operations, and professional services.",
+    techStack: [
+      <SiNextdotjs key="next" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiFramer key="framer" />,
+    ],
+    liveLink: "https://true-north-talent.vercel.app/",
+  },
+  {
+    name: "LLM Chat Platform",
+    image: "/llm-powered-chat.png",
+    logo: "/llm-powered-chat-logo.png",
+    description:
+      "Gemini-powered chat UI with streaming responses, optimistic updates, threaded history, and a responsive layout built for desktop-to-mobile workflows.",
+    techStack: [
+      <FaReact key="react" />,
+      <SiVite key="vite" />,
+      <SiTypescript key="ts" />,
+      <SiTailwindcss key="tailwind" />,
+      <SiFramer key="framer" />,
+      <RiGeminiFill key="gemini" />,
+    ],
+    liveLink: "https://llm-powered-chat-platform.vercel.app/",
   },
   {
     name: "VFGL",
@@ -133,21 +180,6 @@ export const projectsData = [
     liveLink: "https://misplaceme.vercel.app/",
   },
   {
-    name: "Mobtech",
-    image: "/mobtech.jpg",
-    logo: "/mobtech-logo.jpeg",
-    description:
-      "Mobtech Synergies Ltd is a forward-thinking technology company on a mission to solve pressing challenges at both community and global scales.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <FaFigma key="figma" />,
-      <SiFirebase key="firebase" />,
-    ],
-    liveLink: "https://www.mobtechsynergies.com/",
-  },
-  {
     name: "AI Text Processor",
     image: "/ai-text-processor.jpg",
     logo: "/ai-text-processor-logo.svg",
@@ -163,23 +195,6 @@ export const projectsData = [
     liveLink: "https://ai-text-processor-sdt.vercel.app/",
   },
   {
-    name: "E-library",
-    image: "/e-library.jpg",
-    logo: "/e-library-logo.jpg",
-    description:
-      "Access a comprehensive collection of academic resources, research papers, and digital content. Empowering education through technology.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiHeadlessui key="headlessui" />,
-      <SiUikit key="uikit" />,
-      <SiDjango key="django" />,
-      <FaPython key="python" />,
-    ],
-    liveLink: "https://e-library-ws.vercel.app/",
-  },
-  {
     name: "Ticz",
     image: "/ticz.jpg",
     logo: "/ticz-logo.svg",
@@ -192,20 +207,6 @@ export const projectsData = [
       <SiCloudinary key="cloudinary" />,
     ],
     liveLink: "https://conference-ticket-generator-delta.vercel.app/",
-  },
-  {
-    name: "Book Tracker",
-    image: "/book-tracker.jpg",
-    logo: "/book-tracker.jpg",
-    description:
-      "Track Your Reading Progress. Organize, manage, and track the books you're reading in one simple app.",
-    techStack: [
-      <SiNextdotjs key="next" />,
-      <SiTypescript key="ts" />,
-      <SiTailwindcss key="tailwind" />,
-      <SiRedux key="redux" />,
-    ],
-    liveLink: "https://book-tracking-app-nu.vercel.app/",
   },
   {
     name: "Archibuzz",

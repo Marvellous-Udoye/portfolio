@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     "JavaScript",
     "Tailwind CSS",
     "portfolio",
-    "hng12 finalist",
+    "hng finalist",
     "responsive design expert",
   ],
   authors: [{ name: "Marvellous Udoye" }],

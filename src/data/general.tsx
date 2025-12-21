@@ -43,6 +43,8 @@ import {
   SiVitest,
   SiZod,
 } from "react-icons/si";
+import { GiBearFace } from "react-icons/gi";
+
 import {
   DegreeIcon,
   FirstStatIcon,
@@ -75,18 +77,18 @@ export const inspirations = [
 export const stats = [
   {
     icon: <SecondStatIcon />,
-    text: "Experience",
-    count: 1,
+    text: "Ind. Exp.",
+    count: 2,
   },
   {
     icon: <ThirdStatIcon />,
     text: "Collabs",
-    count: 5,
+    count: 6,
   },
   {
     icon: <FirstStatIcon />,
     text: "Projects",
-    count: 10,
+    count: 17,
   },
 ];
 
@@ -125,6 +127,7 @@ export const stacks = [
   { icon: <SiSass color="#CCCCCC" size={24} />, text: "SCSS" },
   { icon: <SiFramer color="#CCCCCC" size={24} />, text: "Framer Motion" },
   { icon: <SiRedux color="#CCCCCC" size={24} />, text: "Redux" },
+  { icon: <GiBearFace color="#CCCCCC" size={24} />, text: "Zustand" },
   { icon: <SiShadcnui color="#CCCCCC" size={24} />, text: "ShadCN" },
   { icon: <SiReactquery color="#CCCCCC" size={24} />, text: "Tanstack Query" },
   { icon: <SiZod color="#CCCCCC" size={24} />, text: "Zod" },
@@ -146,16 +149,15 @@ export const stacks = [
 export const projectsImages = [
   "/sync.png",
   "/genz.ad.jpg",
+  "/llm-powered-chat.png",
+  "/true-north.png",
   "/vfgl.png",
   "/departmental-portal.jpg",
   "/my-uni.jpg",
   "/devlinks.png",
   "/misplace-me.png",
-  "/mobtech.jpg",
   "/ai-text-processor.jpg",
-  "/e-library.jpg",
   "/ticz.jpg",
-  "/book-tracker.jpg",
   "/timbu.jpg",
   "/archibuzz.jpg",
 ];

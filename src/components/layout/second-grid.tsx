@@ -22,8 +22,8 @@ export const SecondGrid = () => {
   const clientsCarouselBackward = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
-  const inspirationSpeed = isMobile ? 42 : 58;
-  const minInspirationDuration = isMobile ? 12 : 18;
+  const inspirationSpeed = 58;
+  const minInspirationDuration = 18;
   const inspirationDuration =
     clientWidth > 0
       ? Math.max(clientWidth / inspirationSpeed, minInspirationDuration)
@@ -82,8 +82,9 @@ export const SecondGrid = () => {
         roles={[
           "Software Developer",
           "Next.js Specialist",
-          "HNG12 Finalist",
+          "HNG Finalist",
           "UX Specialist",
+          "10x Dev",
         ]}
         imageUrl="/profile-image.png"
         initials="MU"

@@ -93,7 +93,7 @@ export const ModalContent = ({
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="relative mt-16 w-full bg-[#101010] border-l border-r border-[rgba(255,255,255,0.05)] z-0 px-6 pt-4 pb-16"
+      className="relative mt-16 w-full bg-[#101010] border-l border-r border-[rgba(255,255,255,0.05)] z-0 px-4 pt-4 pb-16"
       style={{ minHeight: "400px" }}
     >
       <AnimatePresence custom={direction} mode="wait">

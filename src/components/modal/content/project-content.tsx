@@ -64,7 +64,7 @@ export const ProjectContent = ({
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="w-10 h-10 p-1.5 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
             {project.logo ? (
               <Image
                 src={project.logo || "/placeholder.svg"}
@@ -79,7 +79,7 @@ export const ProjectContent = ({
               </span>
             )}
           </div>
-          <h3 className="text-xl font-bold">{project.name}</h3>
+          <h3 className="text-xl font-bold truncate">{project.name}</h3>
         </motion.div>
 
         <motion.div
