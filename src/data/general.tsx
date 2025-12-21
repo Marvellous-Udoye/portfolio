@@ -88,7 +88,7 @@ export const stats = [
   {
     icon: <FirstStatIcon />,
     text: "Projects",
-    count: 17,
+    count: 14,
   },
 ];
 
