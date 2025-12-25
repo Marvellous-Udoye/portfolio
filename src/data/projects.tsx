@@ -1,4 +1,5 @@
-import { FaFigma, FaJs, FaPython, FaReact } from "react-icons/fa";
+import { FaFigma, FaPython, FaReact } from "react-icons/fa";
+import { RiGeminiFill } from "react-icons/ri";
 import {
   SiCloudinary,
   SiDjango,
@@ -15,11 +16,10 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
-  SiVite,
   SiUikit,
+  SiVite,
   SiVitest,
 } from "react-icons/si";
-import { RiGeminiFill } from "react-icons/ri";
 
 export const projectsData = [
   {
@@ -222,21 +222,6 @@ export const projectsData = [
       <SiFramer key="framer" />,
     ],
     liveLink: "https://archi-buzz.vercel.app/",
-  },
-  {
-    name: "Timbu Cloud Store",
-    image: "/timbu.jpg",
-    logo: "/timbu-logo.svg",
-    description:
-      "Shop at Timbu, deliveries come to you; quality products and service that's always true.",
-    techStack: [
-      <FaReact key="react" />,
-      <SiTailwindcss key="tailwind" />,
-      <FaJs key="js" />,
-      <SiPostman key="postman" />,
-      <SiVitest key="jest" />,
-    ],
-    liveLink: "https://timbu-cloud-app.netlify.app//",
   },
   {
     name: "Nexum",

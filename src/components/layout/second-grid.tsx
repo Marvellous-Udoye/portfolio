@@ -21,6 +21,7 @@ export const SecondGrid = () => {
   const clientsCarouselForward = useRef<HTMLDivElement>(null);
   const clientsCarouselBackward = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const [isMounted, setIsMounted] = useState(false);
 
   const inspirationSpeed = 58;
   const minInspirationDuration = 18;
@@ -49,6 +50,10 @@ export const SecondGrid = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const profileDetails = useMemo(() => {
     const utcIndex = baseProfileDetails.findIndex((d) => d.label === "UTC");
     if (utcIndex === -1) return baseProfileDetails;
@@ -56,13 +61,13 @@ export const SecondGrid = () => {
     const utcItem = baseProfileDetails[utcIndex];
     const filtered = baseProfileDetails.filter((_, i) => i !== utcIndex);
 
-    if (isMobile) {
+    if (isMounted && isMobile) {
       filtered.splice(2, 0, utcItem);
       return filtered;
     } else {
       return [...filtered, utcItem];
     }
-  }, [isMobile]);
+  }, [isMobile, isMounted]);
 
   return (
     <section className="grid grid-cols-1 gap-3">

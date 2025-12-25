@@ -44,25 +44,53 @@ export function GlobalGlowEffect({ children }: { children: React.ReactNode }) {
     }
   }, [isHovering, isMobileOrMedium]);
 
+  useEffect(() => {
+    if (!isMobileOrMedium) return;
+
+    const updateGlowPosition = () => {
+      setBoundingRect(new DOMRect(0, 0, window.innerWidth, window.innerHeight));
+      setMousePosition({
+        x: window.innerWidth / 2,
+        y: window.innerHeight * 0.45,
+      });
+
+      setIsHovering(true);
+    };
+
+    updateGlowPosition();
+
+    window.addEventListener("scroll", updateGlowPosition, { passive: true });
+    window.addEventListener("resize", updateGlowPosition);
+
+    return () => {
+      window.removeEventListener("scroll", updateGlowPosition);
+      window.removeEventListener("resize", updateGlowPosition);
+    };
+  }, [isMobileOrMedium]);
+
+  const shouldShowGlow = isMobileOrMedium ? true : isHovering;
+  const glowWrapperClassName = isMobileOrMedium
+    ? "fixed inset-0 pointer-events-none z-10 overflow-hidden"
+    : "absolute inset-0 pointer-events-none z-10 overflow-hidden";
+
   return (
     <div ref={containerRef} className="relative w-full h-full">
-      {!isMobileOrMedium && (
-        <div
-          className="absolute inset-0 pointer-events-none z-10 overflow-hidden"
-          style={{
-            opacity: isHovering ? 1 : 0,
-            transition: "opacity 0.3s ease-in-out",
-          }}
-        >
-          {boundingRect && isHovering && (
-            <div
-              className="absolute"
-              style={{
-                left: 0,
-                top: 0,
-                width: boundingRect.width,
-                height: boundingRect.height,
-                background: `
+      <div
+        className={glowWrapperClassName}
+        style={{
+          opacity: shouldShowGlow ? 1 : 0,
+          transition: "opacity 0.3s ease-in-out",
+        }}
+      >
+        {boundingRect && shouldShowGlow && (
+          <div
+            className="absolute"
+            style={{
+              left: 0,
+              top: 0,
+              width: boundingRect.width,
+              height: boundingRect.height,
+              background: `
                   radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, 
                   rgba(145, 108, 231, 0.25), transparent 40%),
                   radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, 
@@ -70,12 +98,11 @@ export function GlobalGlowEffect({ children }: { children: React.ReactNode }) {
                   radial-gradient(1000px circle at ${mousePosition.x}px ${mousePosition.y}px, 
                   rgba(145, 108, 231, 0.05), transparent 60%)
                 `,
-                pointerEvents: "none",
-              }}
-            />
-          )}
-        </div>
-      )}
+              pointerEvents: "none",
+            }}
+          />
+        )}
+      </div>
 
       <div className="relative z-20">{children}</div>
     </div>
